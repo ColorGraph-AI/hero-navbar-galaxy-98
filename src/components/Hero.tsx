@@ -7,18 +7,20 @@ import TrustedBy from "./TrustedBy";
 const Hero: React.FC = () => {
   return (
     <div className="relative pt-20 overflow-hidden">
-      {/* Background image with gradient overlay */}
+      {/* Background image */}
       <div 
-        className="absolute inset-0 bg-cover bg-center opacity-80"
+        className="absolute inset-0 z-0"
         style={{
           backgroundImage: "url('/lovable-uploads/79329c76-5f48-408d-ac73-874ac7214c60.png')",
           backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          opacity: 0.8
         }}
       />
       
       {/* Linear gradient overlay */}
       <div 
-        className="absolute inset-0"
+        className="absolute inset-0 z-1"
         style={{
           background: "linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 11%, rgba(255,255,255,0.7) 59%, rgba(255,255,255,1) 100%)",
         }}
