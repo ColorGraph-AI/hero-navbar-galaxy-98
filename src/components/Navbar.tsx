@@ -37,7 +37,7 @@ const Navbar: React.FC<NavbarProps> = ({
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <div className="flex-shrink-0 min-w-[150px]">
+          <div className="flex-shrink-0 min-w-[100px] mr-4 md:mr-8">
             <a href="/" className="flex items-center">
               <img
                 alt="ColorGraph.AI Logo"
@@ -48,8 +48,8 @@ const Navbar: React.FC<NavbarProps> = ({
           </div>
 
           {/* Desktop Nav Links */}
-          <nav className="hidden md:flex items-center">
-            <div className="flex items-center space-x-14">
+          <nav className="hidden md:flex items-center flex-grow justify-center">
+            <div className="flex items-center space-x-8 lg:space-x-14">
               {navLinks.map((link, index) => (
                 <a
                   key={index}
@@ -69,7 +69,7 @@ const Navbar: React.FC<NavbarProps> = ({
 
           {/* CTA Button */}
           <div 
-            className="hidden md:block animate-fade-in ml-16" 
+            className="hidden md:block animate-fade-in ml-auto" 
             style={{
               animationDelay: '0.6s'
             }}
