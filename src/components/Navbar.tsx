@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 interface NavbarProps {
   transparent?: boolean;
@@ -12,6 +13,7 @@ const Navbar: React.FC<NavbarProps> = ({
 }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -35,12 +37,12 @@ const Navbar: React.FC<NavbarProps> = ({
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <div className="flex items-center">
-            <a href="/" className="flex items-center gap-x-2">
+          <div className="flex-shrink-0 min-w-[150px]">
+            <a href="/" className="flex items-center">
               <img
                 alt="ColorGraph.AI Logo"
                 src="/lovable-uploads/0c7e8b65-6ec0-4186-a7dd-31d63520f707.png"
-                className="h-8 sm:h-10 animate-fade-in object-fill"
+                className="h-8 sm:h-10 animate-fade-in object-contain w-auto"
               />
             </a>
           </div>
@@ -52,7 +54,7 @@ const Navbar: React.FC<NavbarProps> = ({
                 <a
                   key={index}
                   href={link.url}
-                  className={`nav-link text-black font-medium hover:text-brand-purple transition-colors duration-200 ${
+                  className={`nav-link text-black font-medium hover:text-brand-purple transition-colors duration-200 whitespace-nowrap ${
                     index % 2 === 0 ? 'animate-fade-in' : 'animate-fade-in'
                   }`}
                   style={{
