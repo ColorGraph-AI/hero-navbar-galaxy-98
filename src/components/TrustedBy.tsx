@@ -1,4 +1,6 @@
+
 import React from "react";
+
 const TrustedBy: React.FC = () => {
   const logos = [{
     src: "/lovable-uploads/3c2e8ef3-919b-42eb-b500-8cf4196a48e6.png",
@@ -29,17 +31,27 @@ const TrustedBy: React.FC = () => {
     alt: "Fiverr Logo",
     className: "h-8 md:h-9 lg:h-10"
   }];
-  return <div className="mt-16 animate-fade-in" style={{
-    animationDelay: '0.9s'
-  }}>
+  
+  return (
+    <div className="mt-16 animate-fade-in" style={{
+      animationDelay: '0.9s'
+    }}>
       <h3 className="text-center text-xl md:text-2xl font-medium text-gray-800 mb-8">
         Trusted by creatives from
       </h3>
       <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12 lg:gap-16">
-        {logos.map((logo, index) => <div key={index} className="opacity-80 hover:opacity-100 transition-opacity duration-300">
-            
-          </div>)}
+        {logos.map((logo, index) => (
+          <div key={index} className="opacity-80 hover:opacity-100 transition-opacity duration-300">
+            <img 
+              src={logo.src} 
+              alt={logo.alt} 
+              className={logo.className} 
+            />
+          </div>
+        ))}
       </div>
-    </div>;
+    </div>
+  );
 };
+
 export default TrustedBy;
