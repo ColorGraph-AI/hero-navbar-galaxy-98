@@ -48,8 +48,8 @@ const Navbar: React.FC<NavbarProps> = ({
           </div>
 
           {/* Desktop Nav Links */}
-          <nav className="hidden md:flex items-center flex-grow justify-center">
-            <div className="flex items-center space-x-8 lg:space-x-14">
+          <nav className="hidden lg:flex items-center flex-grow justify-center">
+            <div className="flex items-center space-x-8 xl:space-x-14">
               {navLinks.map((link, index) => (
                 <a
                   key={index}
@@ -69,7 +69,7 @@ const Navbar: React.FC<NavbarProps> = ({
 
           {/* CTA Button */}
           <div 
-            className="hidden md:block animate-fade-in ml-auto" 
+            className="hidden sm:block animate-fade-in ml-auto mr-4" 
             style={{
               animationDelay: '0.6s'
             }}
@@ -80,7 +80,7 @@ const Navbar: React.FC<NavbarProps> = ({
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden">
+          <div className="lg:hidden">
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="inline-flex items-center justify-center p-2 rounded-md text-black hover:text-brand-purple hover:bg-gray-100 transition duration-150"
@@ -92,7 +92,7 @@ const Navbar: React.FC<NavbarProps> = ({
       </div>
 
       {/* Mobile Menu */}
-      <div className={`md:hidden ${mobileMenuOpen ? "block" : "hidden"}`}>
+      <div className={`lg:hidden ${mobileMenuOpen ? "block" : "hidden"}`}>
         <div className="px-2 pt-2 pb-4 space-y-1 sm:px-3 bg-white shadow-lg">
           {navLinks.map((link, index) => (
             <a
@@ -104,7 +104,7 @@ const Navbar: React.FC<NavbarProps> = ({
               {link.title}
             </a>
           ))}
-          <div className="pt-2">
+          <div className="pt-2 sm:hidden">
             <Button className="w-full cta-button bg-brand-purple hover:bg-brand-purple/90 text-white font-medium px-6 py-2 rounded-full">
               Join our waitlist !
             </Button>
