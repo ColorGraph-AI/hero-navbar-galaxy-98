@@ -6,10 +6,22 @@ import TrustedBy from "./TrustedBy";
 
 const Hero: React.FC = () => {
   return (
-    <div className="relative pt-20 overflow-hidden bg-gradient-to-b from-[#FCF3FF] to-white">
-      {/* Background gradient overlay */}
+    <div className="relative pt-20 overflow-hidden">
+      {/* Background image with gradient overlay */}
       <div 
-        className="absolute inset-0 bg-[url('/lovable-uploads/28e0a366-34ad-4711-afb8-a0646a4a3d59.png')] bg-cover bg-center opacity-50 hero-gradient"
+        className="absolute inset-0 bg-cover bg-center opacity-80"
+        style={{
+          backgroundImage: "url('/lovable-uploads/79329c76-5f48-408d-ac73-874ac7214c60.png')",
+          backgroundSize: 'cover',
+        }}
+      />
+      
+      {/* Linear gradient overlay */}
+      <div 
+        className="absolute inset-0"
+        style={{
+          background: "linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 11%, rgba(255,255,255,0.7) 59%, rgba(255,255,255,1) 100%)",
+        }}
       />
       
       {/* Floating 3D elements */}
