@@ -50,7 +50,7 @@ const Navbar: React.FC<NavbarProps> = ({
           {/* Desktop Nav Links - Only shown when not in mobile view */}
           {!isMobile && (
             <nav className="flex items-center flex-grow justify-center">
-              <div className="flex items-center space-x-8 xl:space-x-14">
+              <div className="flex items-center space-x-10 xl:space-x-16">
                 {navLinks.map((link, index) => (
                   <a
                     key={index}

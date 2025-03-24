@@ -1,7 +1,8 @@
 
 import * as React from "react"
 
-const MOBILE_BREAKPOINT = 1100 // Breakpoint at exactly 1100px
+// Increase breakpoint to 1200px to trigger mobile view earlier
+const MOBILE_BREAKPOINT = 1200 // Increased from 1100px
 
 export function useIsMobile() {
   const [isMobile, setIsMobile] = React.useState<boolean | undefined>(undefined)
