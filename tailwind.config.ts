@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -61,6 +62,12 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				brand: {
+					purple: '#A644B3',
+					pink: '#FF8BD5',
+					lightpurple: '#D8CAFF',
+					gray: '#333333'
 				}
 			},
 			borderRadius: {
@@ -84,11 +91,61 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				float: {
+					'0%, 100%': {
+						transform: 'translateY(0px) rotate(0deg)'
+					},
+					'25%': {
+						transform: 'translateY(-10px) rotate(2deg)'
+					},
+					'75%': {
+						transform: 'translateY(10px) rotate(-2deg)'
+					}
+				},
+				floatSlow: {
+					'0%, 100%': {
+						transform: 'translateY(0px) rotate(0deg)'
+					},
+					'50%': {
+						transform: 'translateY(-15px) rotate(3deg)'
+					}
+				},
+				floatFast: {
+					'0%, 100%': {
+						transform: 'translateY(0px) rotate(0deg)'
+					},
+					'50%': {
+						transform: 'translateY(10px) rotate(-3deg)'
+					}
+				},
+				fadeIn: {
+					'0%': { opacity: '0', transform: 'translateY(20px)' },
+					'100%': { opacity: '1', transform: 'translateY(0)' }
+				},
+				zoomIn: {
+					'0%': { transform: 'scale(0.9)', opacity: '0' },
+					'100%': { transform: 'scale(1)', opacity: '1' }
+				},
+				slideInRight: {
+					'0%': { transform: 'translateX(100%)', opacity: '0' },
+					'100%': { transform: 'translateX(0)', opacity: '1' }
+				},
+				slideInLeft: {
+					'0%': { transform: 'translateX(-100%)', opacity: '0' },
+					'100%': { transform: 'translateX(0)', opacity: '1' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'float': 'float 6s ease-in-out infinite',
+				'float-slow': 'floatSlow 8s ease-in-out infinite',
+				'float-fast': 'floatFast 4s ease-in-out infinite',
+				'fade-in': 'fadeIn 0.6s ease-out forwards',
+				'zoom-in': 'zoomIn 0.5s ease-out forwards',
+				'slide-in-right': 'slideInRight 0.5s ease-out forwards',
+				'slide-in-left': 'slideInLeft 0.5s ease-out forwards',
 			}
 		}
 	},
