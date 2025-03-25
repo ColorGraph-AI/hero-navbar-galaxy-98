@@ -30,7 +30,7 @@ const HowItWorks: React.FC = () => {
       number: 4,
       title: "Get AI-optimized Feedback",
       description: "Receive feedback as clear, step-by-step revision tasks.",
-      image: "/lovable-uploads/c1bd95e8-24bd-4363-82f4-a847ec1c9065.png",
+      image: "/lovable-uploads/c0cef244-125d-41f9-a1df-3959fddded86.png", // Updated to the new image
       imageAlt: "Feedback revision interface",
     },
     {
