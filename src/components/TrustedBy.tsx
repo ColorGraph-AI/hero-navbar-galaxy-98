@@ -7,31 +7,41 @@ const TrustedBy: React.FC = () => {
       <p className="text-sm font-alexandria font-medium text-gray-600 mb-6">
         Trusted by creatives from
       </p>
-      <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12">
+      <div className="flex flex-wrap justify-center items-center gap-4 md:gap-8 lg:gap-12">
         <img
-          src="/lovable-uploads/69d30257-f0db-4d91-8161-9e6cbbf56132.png"
-          alt="Adobe"
+          src="/lovable-uploads/34a2a16f-918f-47b8-8ffb-beaea3da5bbd.png"
+          alt="Rice University"
           className="h-10 w-auto grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
         />
         <img
-          src="/lovable-uploads/13296c8c-67c5-4ea9-9eab-0f7da8f7a51a.png"
-          alt="Figma"
+          src="/lovable-uploads/04796541-c124-4f97-8a43-b4ba3b0f07f8.png"
+          alt="Tongji University"
+          className="h-10 w-auto grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+        />
+        <img
+          src="/lovable-uploads/6ee0a8b6-bfb4-4212-ab8c-e96419beaa75.png"
+          alt="D&I"
+          className="h-10 w-auto grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+        />
+        <img
+          src="/lovable-uploads/2fb3c38b-0d23-449b-b2dd-1bac6e2aa52d.png"
+          alt="Behance"
+          className="h-10 w-auto grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+        />
+        <img
+          src="/lovable-uploads/c9664f27-a53d-477a-b2d7-f054ca4882da.png"
+          alt="Upwork"
           className="h-8 w-auto grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
         />
         <img
-          src="/lovable-uploads/04a38fa4-69bc-4c29-a3b0-a2f8c9bf5ecf.png"
-          alt="Google"
-          className="h-8 w-auto grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
-        />
-        <img
-          src="/lovable-uploads/d80387b7-a1dd-4ced-8cdf-b500ccec64a0.png"
+          src="/lovable-uploads/7a25451e-1a61-4d1e-b251-3d4915a0db22.png"
           alt="Dribbble"
-          className="h-7 w-auto grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+          className="h-8 w-auto grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
         />
         <img
-          src="/lovable-uploads/6d0959d7-3bfa-4014-8a54-af9ee95f1b7c.png"
-          alt="Notion"
-          className="h-7 w-auto grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+          src="/lovable-uploads/10c10a93-b132-497e-a992-95993b824f82.png"
+          alt="Fiverr"
+          className="h-8 w-auto grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
         />
       </div>
     </div>
