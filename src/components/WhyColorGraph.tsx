@@ -60,7 +60,7 @@ const WhyColorGraph: React.FC = () => {
       title: "Save time for design",
       description:
         "Spend more time on creative work, not on managing feedback or endless revisions.",
-      iconSrc: "/lovable-uploads/71544dba-8468-47ec-b219-e9847c360afc.png", // Clock icon
+      iconSrc: "/lovable-uploads/ccb37354-2189-458c-ae90-a21fc35f3b9c.png", // Updated clock icon
       iconAlt: "Clock icon",
     },
     {
