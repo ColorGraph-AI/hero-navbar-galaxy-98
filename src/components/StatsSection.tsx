@@ -3,6 +3,7 @@ import React, { useEffect, useRef } from "react";
 import { Card } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { Separator } from "@/components/ui/separator";
 
 const StatCard: React.FC<{
   description: string;
@@ -48,7 +49,7 @@ const StatsSection: React.FC = () => {
 
   return (
     <section ref={sectionRef} className="py-12 md:py-16 lg:py-24 border-t border-b border-gray-100 overflow-hidden">
-      <div className="container mx-auto px-6 sm:px-8 md:px-12 lg:px-16">
+      <div className="container mx-auto px-8 sm:px-12 md:px-16 lg:px-24 xl:px-32">
         {/* First Stat Row - Image left, 50% right */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 lg:gap-12 mb-16 md:mb-24 items-center">
           <div className="animate-on-scroll animate-slide-in-left opacity-0" style={{ animationDelay: "0.1s", transitionDuration: "0.8s" }}>
@@ -65,21 +66,25 @@ const StatsSection: React.FC = () => {
           </div>
         </div>
 
-        {/* Second Stat Row - 3x left, Image right */}
+        <Separator className="my-8 bg-gray-200 w-full mx-auto" />
+
+        {/* Second Stat Row - 3x right, Image left */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 lg:gap-12 mb-16 md:mb-24 items-center">
-          <div className="flex flex-col justify-center text-left animate-on-scroll animate-slide-in-left opacity-0" style={{ animationDelay: "0.5s", transitionDuration: "0.8s" }}>
+          <div className="flex flex-col justify-center text-right lg:order-2 animate-on-scroll animate-slide-in-right opacity-0" style={{ animationDelay: "0.5s", transitionDuration: "0.8s" }}>
             <h3 className="text-4xl sm:text-5xl lg:text-6xl text-brand-purple font-bold font-alexandria mb-3 md:mb-4 transform transition-transform duration-500 hover:translate-x-2">3x</h3>
             <h4 className="text-2xl sm:text-2xl lg:text-3xl font-semibold font-alexandria text-black mb-2 md:mb-3">Clearer Client Feedback</h4>
-            <p className="text-gray-600 font-opensans font-normal max-w-md">
+            <p className="text-gray-600 font-opensans font-normal ml-auto max-w-md">
               Eliminate misunderstandings with structured, actionable client input.
             </p>
           </div>
-          <div className="animate-on-scroll animate-slide-in-right opacity-0" style={{ animationDelay: "0.7s", transitionDuration: "0.8s" }}>
+          <div className="lg:order-1 animate-on-scroll animate-slide-in-left opacity-0" style={{ animationDelay: "0.7s", transitionDuration: "0.8s" }}>
             <StatCard 
               description="A speech bubble converting vague comments into precise instructions"
             />
           </div>
         </div>
+
+        <Separator className="my-8 bg-gray-200 w-full mx-auto" />
 
         {/* Third Stat Row - Image left, 80% right */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 lg:gap-12 items-center">
@@ -111,10 +116,10 @@ const StatsSection: React.FC = () => {
           transform: translateX(0) !important;
         }
         .animate-slide-in-left {
-          transform: translateX(-50px);
+          transform: translateX(-80px);
         }
         .animate-slide-in-right {
-          transform: translateX(50px);
+          transform: translateX(80px);
         }
         `}
       </style>
