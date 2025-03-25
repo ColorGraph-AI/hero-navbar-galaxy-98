@@ -60,35 +60,35 @@ const WhyColorGraph: React.FC = () => {
       title: "Save time for design",
       description:
         "Spend more time on creative work, not on managing feedback or endless revisions.",
-      iconSrc: "/lovable-uploads/71544dba-8468-47ec-b219-e9847c360afc.png",
+      iconSrc: "/lovable-uploads/71544dba-8468-47ec-b219-e9847c360afc.png", // Clock icon
       iconAlt: "Clock icon",
     },
     {
       title: "Deliver projects faster",
       description:
         "Cut revision cycles in half, meet deadlines effortlessly, and impress your clients.",
-      iconSrc: "/lovable-uploads/1c9fcc5f-0f35-4195-b7c1-8fa338682481.png",
+      iconSrc: "/lovable-uploads/1c9fcc5f-0f35-4195-b7c1-8fa338682481.png", // Rocket icon
       iconAlt: "Rocket icon",
     },
     {
       title: "Keep creative control",
       description:
         "AI enhances your workflow but never overrides your design choices.",
-      iconSrc: "/lovable-uploads/106ddf94-0b1e-400c-bc2d-6afc53de80cf.png",
+      iconSrc: "/lovable-uploads/106ddf94-0b1e-400c-bc2d-6afc53de80cf.png", // Palette icon
       iconAlt: "Palette icon",
     },
     {
       title: "Clarity in every feedback round",
       description:
         "No more guesswork—understand exactly what clients want with AI-structured feedback.",
-      iconSrc: "/lovable-uploads/1bd3355a-d257-43c6-91d5-7384773630eb.png",
+      iconSrc: "/lovable-uploads/1bd3355a-d257-43c6-91d5-7384773630eb.png", // Target icon
       iconAlt: "Target icon",
     },
     {
       title: "Build stronger client relationships",
       description:
         "Clear communication leads to happy clients — and more repeat business.",
-      iconSrc: "/lovable-uploads/cf19cdaf-2669-43f8-afd3-596f7cf6e058.png",
+      iconSrc: "/lovable-uploads/cf19cdaf-2669-43f8-afd3-596f7cf6e058.png", // Emoji/smiley faces icon
       iconAlt: "Emoji icons",
     },
   ];
