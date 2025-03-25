@@ -81,7 +81,7 @@ const WhyColorGraph: React.FC = () => {
       title: "Clarity in every feedback round",
       description:
         "No more guesswork—understand exactly what clients want with AI-structured feedback.",
-      iconSrc: "/lovable-uploads/1bd3355a-d257-43c6-91d5-7384773630eb.png", // Target icon
+      iconSrc: "/lovable-uploads/a5bddd49-90a5-42cb-b0c5-56f97a216d9a.png", // Updated target icon
       iconAlt: "Target icon",
     },
     {
