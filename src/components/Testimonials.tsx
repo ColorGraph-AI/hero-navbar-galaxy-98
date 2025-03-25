@@ -126,17 +126,11 @@ const Testimonials: React.FC = () => {
 
   // Add mask effect to create the fading effect on the sides
   useEffect(() => {
-    if (emblaApi) {
-      const applyMaskStyles = () => {
-        const rootNode = emblaApi.rootNode();
-        rootNode.classList.add("relative", "overflow-hidden");
-        rootNode.style.mask = "linear-gradient(90deg, transparent 0%, black 15%, black 85%, transparent 100%)";
-        rootNode.style.webkitMask = "linear-gradient(90deg, transparent 0%, black 15%, black 85%, transparent 100%)";
-      };
-
-      applyMaskStyles();
+    if (emblaRef && emblaRef.current) {
+      emblaRef.current.style.mask = "linear-gradient(90deg, transparent 0%, black 15%, black 85%, transparent 100%)";
+      emblaRef.current.style.webkitMask = "linear-gradient(90deg, transparent 0%, black 15%, black 85%, transparent 100%)";
     }
-  }, [emblaApi]);
+  }, [emblaRef]);
 
   return (
     <section className="py-20 bg-white">
@@ -154,26 +148,28 @@ const Testimonials: React.FC = () => {
         </motion.div>
 
         <div className="relative mx-auto">
-          <div className="relative overflow-hidden" ref={emblaRef}>
-            <div className="flex px-4 py-4">
-              {testimonials.map((testimonial, index) => (
-                <div key={index} className="flex-[0_0_90%] sm:flex-[0_0_45%] md:flex-[0_0_30%] mx-2">
-                  <TestimonialCard
-                    stars={testimonial.stars}
-                    quote={testimonial.quote}
-                    name={testimonial.name}
-                    position={testimonial.position}
-                    highlighted={testimonial.highlighted}
-                  />
-                </div>
-              ))}
+          <Carousel className="w-full">
+            <div className="relative overflow-hidden" ref={emblaRef}>
+              <CarouselContent>
+                {testimonials.map((testimonial, index) => (
+                  <CarouselItem key={index} className="md:basis-1/3 lg:basis-1/3 pl-4">
+                    <TestimonialCard
+                      stars={testimonial.stars}
+                      quote={testimonial.quote}
+                      name={testimonial.name}
+                      position={testimonial.position}
+                      highlighted={testimonial.highlighted}
+                    />
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
             </div>
-          </div>
-          
-          <div className="flex justify-center mt-8">
-            <CarouselPrevious className="relative -left-0 mx-2" />
-            <CarouselNext className="relative -right-0 mx-2" />
-          </div>
+            
+            <div className="flex justify-center mt-8">
+              <CarouselPrevious className="relative -left-0 mx-2" />
+              <CarouselNext className="relative -right-0 mx-2" />
+            </div>
+          </Carousel>
         </div>
       </div>
     </section>
