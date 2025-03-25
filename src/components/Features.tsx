@@ -45,12 +45,12 @@ const Features: React.FC = () => {
           onValueChange={setActiveTab}
           className="w-full max-w-4xl mx-auto"
         >
-          <TabsList className="w-full h-auto p-1 bg-purple-50 rounded-full mb-10">
+          <TabsList className="w-full h-auto p-1 bg-[#FCF1FF] rounded-full mb-10">
             {featureTabs.map((tab) => (
               <TabsTrigger
                 key={tab.id}
                 value={tab.id}
-                className="relative py-3 px-6 text-gray-700 rounded-full data-[state=active]:text-brand-purple data-[state=active]:bg-white data-[state=active]:shadow-md transition-all duration-300"
+                className="relative py-3 px-6 text-black rounded-full data-[state=active]:text-black data-[state=active]:bg-white data-[state=active]:shadow-md transition-all duration-300"
               >
                 {tab.label}
                 {activeTab === tab.id && (
@@ -66,7 +66,7 @@ const Features: React.FC = () => {
             ))}
           </TabsList>
           
-          <div className="bg-purple-50 rounded-xl p-6 overflow-hidden">
+          <div className="bg-[#FCF1FF] rounded-3xl p-8 overflow-hidden">
             {featureTabs.map((tab) => (
               <TabsContent 
                 key={tab.id} 
@@ -76,13 +76,13 @@ const Features: React.FC = () => {
                   animationDelay: '0.1s'
                 }}
               >
-                <div className="rounded-lg overflow-hidden">
+                <div className="overflow-hidden border-4 border-[#FCF1FF] rounded-2xl bg-white">
                   <img 
                     src={tab.imageUrl} 
                     alt={tab.label} 
-                    className="w-full h-auto rounded-lg shadow-md"
+                    className="w-full h-auto"
                   />
-                  <p className="mt-6 text-center text-gray-700 max-w-2xl mx-auto">
+                  <p className="mt-6 text-center text-gray-700 max-w-2xl mx-auto p-4">
                     {tab.description}
                   </p>
                 </div>
