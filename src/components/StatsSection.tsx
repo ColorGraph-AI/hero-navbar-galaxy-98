@@ -105,8 +105,8 @@ const StatsSection: React.FC = () => {
           </div>
         </div>
       </div>
-
-      <style jsx>
+      
+      <style>
         {`
         .animate-on-scroll {
           transition: opacity 0.8s ease-out, transform 0.8s ease-out;
