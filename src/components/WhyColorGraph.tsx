@@ -67,7 +67,7 @@ const WhyColorGraph: React.FC = () => {
       title: "Deliver projects faster",
       description:
         "Cut revision cycles in half, meet deadlines effortlessly, and impress your clients.",
-      iconSrc: "/lovable-uploads/1c9fcc5f-0f35-4195-b7c1-8fa338682481.png", // Rocket icon
+      iconSrc: "/lovable-uploads/e7e0438a-8b02-4daa-bd72-a3f5ad7a8c7e.png", // Rocket icon
       iconAlt: "Rocket icon",
     },
     {
