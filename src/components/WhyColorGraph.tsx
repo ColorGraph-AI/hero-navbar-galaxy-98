@@ -74,7 +74,7 @@ const WhyColorGraph: React.FC = () => {
       title: "Keep creative control",
       description:
         "AI enhances your workflow but never overrides your design choices.",
-      iconSrc: "/lovable-uploads/106ddf94-0b1e-400c-bc2d-6afc53de80cf.png", // Palette icon
+      iconSrc: "/lovable-uploads/9dcea2c4-bead-42c2-a9e7-634cbf46a4d6.png", // Updated palette icon
       iconAlt: "Palette icon",
     },
     {
