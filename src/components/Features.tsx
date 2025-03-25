@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState } from "react";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { motion } from "framer-motion";
 
@@ -12,17 +12,6 @@ interface FeatureTab {
 
 const Features: React.FC = () => {
   const [activeTab, setActiveTab] = useState<string>("ai-analysis");
-  const [contentHeight, setContentHeight] = useState<number>(0);
-  const contentRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
-  
-  // Update the height of the content container when the active tab changes
-  useEffect(() => {
-    const activeContent = contentRefs.current[activeTab];
-    if (activeContent) {
-      // Set the height to the height of the active content
-      setContentHeight(activeContent.offsetHeight);
-    }
-  }, [activeTab]);
   
   const featureTabs: FeatureTab[] = [
     {
@@ -77,25 +66,17 @@ const Features: React.FC = () => {
             ))}
           </TabsList>
           
-          <div 
-            className="bg-[#FCF1FF] rounded-3xl p-8 overflow-hidden transition-all duration-300"
-            style={{ minHeight: `${contentHeight}px` }}
-          >
+          <div className="bg-[#FCF1FF] rounded-3xl p-8 overflow-hidden">
             {featureTabs.map((tab) => (
               <TabsContent 
                 key={tab.id} 
                 value={tab.id}
-                className="mt-0 data-[state=active]:animate-fade-in absolute w-full left-0 transition-opacity duration-300"
+                className="mt-0 data-[state=active]:animate-fade-in"
                 style={{ 
-                  animationDelay: '0.1s',
-                  opacity: activeTab === tab.id ? 1 : 0,
-                  pointerEvents: activeTab === tab.id ? 'auto' : 'none'
+                  animationDelay: '0.1s'
                 }}
               >
-                <div 
-                  ref={el => contentRefs.current[tab.id] = el}
-                  className="overflow-hidden border-4 border-[#FCF1FF] rounded-2xl bg-white"
-                >
+                <div className="overflow-hidden border-4 border-[#FCF1FF] rounded-2xl bg-white">
                   <img 
                     src={tab.imageUrl} 
                     alt={tab.label} 
