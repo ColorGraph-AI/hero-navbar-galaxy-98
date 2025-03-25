@@ -55,7 +55,7 @@ const Navbar: React.FC<NavbarProps> = ({
                   <a
                     key={index}
                     href={link.url}
-                    className={`nav-link text-black font-medium hover:text-brand-purple transition-colors duration-200 whitespace-nowrap ${
+                    className={`nav-link font-opensans font-semibold text-black hover:text-brand-purple transition-colors duration-200 whitespace-nowrap ${
                       index % 2 === 0 ? 'animate-fade-in' : 'animate-fade-in'
                     }`}
                     style={{
@@ -76,7 +76,7 @@ const Navbar: React.FC<NavbarProps> = ({
               animationDelay: '0.6s'
             }}
           >
-            <Button className="cta-button bg-brand-purple hover:bg-brand-purple/90 text-white font-medium px-6 py-2 rounded-full">
+            <Button className="cta-button font-alexandria font-semibold bg-brand-purple hover:bg-brand-purple/90 text-white px-6 py-2 rounded-full">
               Join our waitlist !
             </Button>
           </div>
@@ -102,7 +102,7 @@ const Navbar: React.FC<NavbarProps> = ({
             <a
               key={index}
               href={link.url}
-              className="block px-3 py-2 rounded-md text-base font-medium text-black hover:text-brand-purple hover:bg-gray-50"
+              className="block px-3 py-2 rounded-md text-base font-opensans font-semibold text-black hover:text-brand-purple hover:bg-gray-50"
               onClick={() => setMobileMenuOpen(false)}
             >
               {link.title}

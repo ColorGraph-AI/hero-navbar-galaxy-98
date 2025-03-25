@@ -92,9 +92,9 @@ const Solution: React.FC = () => {
       {/* Content */}
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center max-w-3xl mx-auto">
-          <h2 className="text-5xl font-bold mb-6 text-black">The Solution</h2>
-          <h3 className="text-2xl font-medium mb-8 text-brand-purple">Turn Feedback into Action, Instantly</h3>
-          <p className="text-lg text-gray-800 mb-12">
+          <h2 className="text-5xl font-alexandria font-bold mb-6 text-black">The Solution</h2>
+          <h3 className="text-2xl font-alexandria font-semibold mb-8 text-[#A644B3]">Turn Feedback into Action, Instantly</h3>
+          <p className="text-lg font-opensans font-normal text-gray-800 mb-12">
             ColorGraph.AI bridges the gap between creative vision and client expectations,
             eliminating the endless back-and-forth revisions.
           </p>

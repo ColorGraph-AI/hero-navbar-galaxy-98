@@ -32,31 +32,31 @@ const Hero: React.FC = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="flex flex-col items-center justify-center min-h-[85vh] text-center py-16 md:py-24">
           {/* Main Headline */}
-          <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight text-black max-w-4xl animate-fade-in" style={{ animationDelay: '0.3s' }}>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-alexandria font-bold tracking-tight text-black max-w-4xl animate-fade-in" style={{ animationDelay: '0.3s' }}>
             <span className="block">Faster Feedback,</span>
             <span className="block">Fewer Revisions.</span>
           </h1>
           
           {/* Subheadline */}
-          <h2 className="mt-6 text-xl md:text-2xl lg:text-3xl font-medium text-brand-purple max-w-2xl animate-fade-in" style={{ animationDelay: '0.5s' }}>
+          <h2 className="mt-6 text-xl md:text-2xl lg:text-3xl font-alexandria font-semibold text-brand-purple max-w-2xl animate-fade-in" style={{ animationDelay: '0.5s' }}>
             Keep Your Creativity Flowing
           </h2>
           
           {/* Description */}
-          <p className="mt-6 text-lg text-gray-700 max-w-2xl mx-auto animate-fade-in" style={{ animationDelay: '0.6s' }}>
+          <p className="mt-6 text-lg font-opensans font-normal text-gray-700 max-w-2xl mx-auto animate-fade-in" style={{ animationDelay: '0.6s' }}>
             Tired of vague feedback and endless revision cycles? ColorGraph.AI transforms client input into
             structured, actionable insights so you can design with clarity and confidence.
           </p>
           
           {/* CTA Button */}
           <div className="mt-10 animate-fade-in" style={{ animationDelay: '0.7s' }}>
-            <Button className="cta-button bg-brand-purple hover:bg-brand-purple/90 text-white font-medium px-8 py-6 text-lg rounded-full shadow-lg">
+            <Button className="cta-button font-alexandria font-semibold bg-brand-purple hover:bg-brand-purple/90 text-white px-8 py-6 text-lg rounded-full shadow-lg">
               Join our waitlist !
             </Button>
           </div>
           
           {/* Join Count */}
-          <p className="mt-6 text-sm text-gray-600 flex items-center gap-2 animate-fade-in" style={{ animationDelay: '0.8s' }}>
+          <p className="mt-6 text-sm font-opensans font-normal text-gray-600 flex items-center gap-2 animate-fade-in" style={{ animationDelay: '0.8s' }}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5 text-brand-purple"

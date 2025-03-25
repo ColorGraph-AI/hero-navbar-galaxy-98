@@ -48,7 +48,10 @@ const Features: React.FC = () => {
   return (
     <section className="py-20 bg-white" id="features">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-4xl font-bold text-center mb-12">Features</h2>
+        <h2 className="text-4xl font-bold text-center mb-4">Features</h2>
+        <h3 className="text-xl font-alexandria font-semibold text-center text-gray-700 mb-12">
+          Transform your creative workflow with AI-powered feedback tools
+        </h3>
         
         <Tabs 
           defaultValue="ai-analysis" 
@@ -61,7 +64,7 @@ const Features: React.FC = () => {
               <TabsTrigger
                 key={tab.id}
                 value={tab.id}
-                className="relative flex-1 py-3 px-2 rounded-full transition-all duration-300 text-center"
+                className="relative flex-1 py-3 px-2 rounded-full transition-all duration-300 text-center font-opensans font-semibold"
               >
                 <span className="relative z-10 text-black">{tab.label}</span>
                 {activeTab === tab.id && (
