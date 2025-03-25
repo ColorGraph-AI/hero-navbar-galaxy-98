@@ -74,60 +74,63 @@ const HowItWorks: React.FC = () => {
         {steps.map((step, index) => (
           <div 
             key={step.number} 
-            className={`py-12 relative ${index % 2 === 1 ? 'bg-[#FCF5FF]' : 'bg-white'}`}
+            className={`py-16 relative ${index % 2 === 1 ? 'bg-[#FCF5FF]' : 'bg-white'}`}
           >
-            {/* Desktop layout */}
-            <div className="hidden md:flex items-center container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
-              {/* Content - left side for odd, right side for even */}
-              <div className={`w-1/2 ${index % 2 === 0 ? 'pr-16' : 'ml-auto pl-16 order-2'}`}>
-                <motion.div
-                  initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.5 }}
-                  viewport={{ once: true }}
-                >
-                  <div className="flex items-baseline mb-2">
-                    <span className="text-xl font-bold mr-2">{step.number}.</span>
-                    <h3 className="text-2xl font-alexandria font-bold">{step.title}</h3>
-                  </div>
-                  <p className="text-gray-600 font-opensans mt-2">{step.description}</p>
-                </motion.div>
-              </div>
-
-              {/* Image - right side for odd, left side for even */}
-              <div className={`w-1/2 ${index % 2 === 0 ? 'ml-auto order-2' : 'pr-16'}`}>
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.5 }}
-                  viewport={{ once: true }}
-                  className="max-w-md mx-auto"
-                >
-                  <img
-                    src={step.image}
-                    alt={step.imageAlt}
-                    className="w-full h-auto rounded-xl shadow-md"
-                  />
-                </motion.div>
-              </div>
-            </div>
-
-            {/* Mobile layout */}
-            <div className="md:hidden container mx-auto px-4">
-              <div className="flex flex-col items-center text-center">
-                <div className="flex items-center flex-col mb-6">
-                  <div className="flex items-baseline mb-2">
-                    <span className="text-xl font-bold mr-2">{step.number}.</span>
-                    <h3 className="text-2xl font-alexandria font-bold">{step.title}</h3>
-                  </div>
-                  <p className="text-gray-600 font-opensans mt-2">{step.description}</p>
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+              {/* Desktop layout */}
+              <div className="hidden md:flex items-center">
+                {/* Content - always goes on the left for odd steps, right for even steps */}
+                <div className={`w-1/2 ${index % 2 === 1 ? 'order-2 pl-12' : 'pr-12'}`}>
+                  <motion.div
+                    initial={{ opacity: 0, x: index % 2 === 1 ? 20 : -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.5 }}
+                    viewport={{ once: true }}
+                    className={`${index % 2 === 1 ? 'ml-auto text-right' : ''}`}
+                  >
+                    <h3 className="text-3xl font-alexandria font-bold mb-3">
+                      <span className="mr-2">{step.number}.</span>
+                      {step.title}
+                    </h3>
+                    <p className="text-gray-600 font-opensans text-lg max-w-xl">{step.description}</p>
+                  </motion.div>
                 </div>
-                <div className="w-full max-w-xs">
-                  <img
-                    src={step.image}
-                    alt={step.imageAlt}
-                    className="w-full h-auto rounded-xl shadow-md"
-                  />
+
+                {/* Image - always goes on the right for odd steps, left for even steps */}
+                <div className={`w-1/2 ${index % 2 === 1 ? 'order-1' : 'order-2'}`}>
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.5 }}
+                    viewport={{ once: true }}
+                    className="max-w-lg mx-auto"
+                  >
+                    <img
+                      src={step.image}
+                      alt={step.imageAlt}
+                      className="w-full h-auto rounded-xl shadow-md border border-gray-100"
+                    />
+                  </motion.div>
+                </div>
+              </div>
+
+              {/* Mobile layout */}
+              <div className="md:hidden">
+                <div className="flex flex-col space-y-8">
+                  <div className="text-center">
+                    <h3 className="text-3xl font-alexandria font-bold mb-3">
+                      <span className="mr-2">{step.number}.</span>
+                      {step.title}
+                    </h3>
+                    <p className="text-gray-600 font-opensans text-lg">{step.description}</p>
+                  </div>
+                  <div className="mx-auto max-w-sm">
+                    <img
+                      src={step.image}
+                      alt={step.imageAlt}
+                      className="w-full h-auto rounded-xl shadow-md border border-gray-100"
+                    />
+                  </div>
                 </div>
               </div>
             </div>
@@ -145,13 +148,13 @@ const HowItWorks: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
-          className="text-center"
+          className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-alexandria font-bold mb-10">
             How ColorGraph.AI Works?
           </h2>
           
-          <div className="max-w-xs mx-auto mb-12">
+          <div className="max-w-xs mx-auto">
             <Tabs defaultValue="designers" onValueChange={setActiveTab} className="w-full">
               <TabsList className="grid w-full grid-cols-2 bg-gray-100 rounded-full p-1">
                 <TabsTrigger 
@@ -167,20 +170,25 @@ const HowItWorks: React.FC = () => {
                   For Clients
                 </TabsTrigger>
               </TabsList>
-              
-              {/* Step content outside of container for full-width bg colors */}
-              <div className="overflow-hidden">
+            
+              {/* Tabs content */}
+              <div className="mt-0">
                 <TabsContent value="designers">
-                  {renderSteps(designerSteps)}
+                  {/* This empty div is needed to make the TabsContent work correctly */}
                 </TabsContent>
-                
                 <TabsContent value="clients">
-                  {renderSteps(clientSteps)}
+                  {/* This empty div is needed to make the TabsContent work correctly */}
                 </TabsContent>
               </div>
             </Tabs>
           </div>
         </motion.div>
+      </div>
+
+      {/* Step content outside of Tabs for proper full-width bg colors */}
+      <div className="overflow-hidden">
+        {activeTab === "designers" && renderSteps(designerSteps)}
+        {activeTab === "clients" && renderSteps(clientSteps)}
       </div>
     </section>
   );
