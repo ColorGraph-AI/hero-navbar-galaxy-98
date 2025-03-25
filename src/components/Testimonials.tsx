@@ -1,4 +1,3 @@
-
 import React, { useRef } from "react";
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
@@ -54,16 +53,13 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
       background: "linear-gradient(90deg, rgba(255,231,252,1) 0%, rgba(248,228,255,1) 100%)" 
     }}>
       <CardContent className="p-6 flex flex-col h-full">
-        {/* Stars */}
-        <div className="flex mb-4">
-          {Array.from({ length: stars }).map((_, i) => (
-            <img
-              key={i}
-              src="/lovable-uploads/05706263-fc57-4667-b04b-9bfc9df44a41.png"
-              alt="Star"
-              className="w-6 h-6 mr-1"
-            />
-          ))}
+        {/* Stars - using the single image */}
+        <div className="flex justify-center mb-4">
+          <img
+            src="/lovable-uploads/db58c15a-b08e-4a8c-b575-45e3db2f17e1.png"
+            alt="Five Stars Rating"
+            className="h-8"
+          />
         </div>
 
         {/* Quote */}
