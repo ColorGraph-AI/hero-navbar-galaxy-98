@@ -8,6 +8,7 @@ type FeatureCardProps = {
   iconSrc: string;
   iconAlt: string;
   delay?: number;
+  index: number;
 };
 
 const FeatureCard: React.FC<FeatureCardProps> = ({
@@ -16,39 +17,63 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
   iconSrc,
   iconAlt,
   delay = 0,
+  index,
 }) => {
+  // Determine if icon should be on left side based on index
+  const isIconOnLeft = index >= 3;
+  
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay }}
       viewport={{ once: true }}
-      className="relative bg-white rounded-3xl p-8 shadow-sm border border-gray-50 overflow-hidden hover:shadow-md transition-shadow duration-300"
+      className="relative bg-white rounded-3xl p-8 shadow-sm border border-gray-50 overflow-hidden"
     >
-      {/* Upscaled, blurred background icon */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-visible">
-        <img
-          src={iconSrc}
-          alt=""
-          className="w-80 h-80 opacity-25 blur-3xl transform scale-125"
-        />
+      {/* Background blur effect for icon */}
+      <div className="absolute inset-0 overflow-hidden">
+        {isIconOnLeft ? (
+          // Left-positioned background for cards 3 and 4
+          <div className="absolute right-0 top-0 opacity-20">
+            <img
+              src={iconSrc}
+              alt=""
+              className="w-96 h-96 blur-3xl transform translate-x-1/4 -translate-y-1/4"
+            />
+          </div>
+        ) : (
+          // Right-positioned background for cards 0, 1, and 2
+          <div className="absolute right-0 top-0 opacity-20">
+            <img
+              src={iconSrc}
+              alt=""
+              className="w-96 h-96 blur-3xl transform translate-x-1/4 -translate-y-1/4"
+            />
+          </div>
+        )}
       </div>
 
-      {/* Foreground content */}
-      <div className="relative z-10">
-        <motion.div
-          className="mb-8 flex items-center justify-center"
-          whileHover={{ scale: 1.05, rotate: 3 }}
-          transition={{ type: "spring", stiffness: 300 }}
-        >
-          <img
-            src={iconSrc}
-            alt={iconAlt}
-            className="w-20 h-20 object-contain"
-          />
-        </motion.div>
-        <h3 className="text-xl font-alexandria font-semibold mb-3">{title}</h3>
-        <p className="text-gray-600 font-opensans text-sm">{description}</p>
+      {/* Card content */}
+      <div className="relative z-10 flex flex-col h-full">
+        {isIconOnLeft ? (
+          // Left-aligned layout (text on right) for cards 3 and 4
+          <>
+            <h3 className="text-2xl font-alexandria font-bold mb-3">{title}</h3>
+            <p className="text-gray-600 font-opensans mb-4">{description}</p>
+            <div className="mt-auto">
+              <img src={iconSrc} alt={iconAlt} className="w-24 h-24 object-contain" />
+            </div>
+          </>
+        ) : (
+          // Right-aligned layout (text on left) for cards 0, 1, and 2
+          <>
+            <div className="mb-8">
+              <img src={iconSrc} alt={iconAlt} className="w-24 h-24 object-contain" />
+            </div>
+            <h3 className="text-2xl font-alexandria font-bold mb-3">{title}</h3>
+            <p className="text-gray-600 font-opensans">{description}</p>
+          </>
+        )}
       </div>
     </motion.div>
   );
@@ -60,7 +85,7 @@ const WhyColorGraph: React.FC = () => {
       title: "Save time for design",
       description:
         "Spend more time on creative work, not on managing feedback or endless revisions.",
-      iconSrc: "/lovable-uploads/ccb37354-2189-458c-ae90-a21fc35f3b9c.png", // Updated clock icon
+      iconSrc: "/lovable-uploads/ccb37354-2189-458c-ae90-a21fc35f3b9c.png", // Clock icon
       iconAlt: "Clock icon",
     },
     {
@@ -74,21 +99,21 @@ const WhyColorGraph: React.FC = () => {
       title: "Keep creative control",
       description:
         "AI enhances your workflow but never overrides your design choices.",
-      iconSrc: "/lovable-uploads/9dcea2c4-bead-42c2-a9e7-634cbf46a4d6.png", // Updated palette icon
+      iconSrc: "/lovable-uploads/9dcea2c4-bead-42c2-a9e7-634cbf46a4d6.png", // Palette icon
       iconAlt: "Palette icon",
     },
     {
       title: "Clarity in every feedback round",
       description:
         "No more guesswork—understand exactly what clients want with AI-structured feedback.",
-      iconSrc: "/lovable-uploads/a5bddd49-90a5-42cb-b0c5-56f97a216d9a.png", // Updated target icon
+      iconSrc: "/lovable-uploads/a5bddd49-90a5-42cb-b0c5-56f97a216d9a.png", // Target icon
       iconAlt: "Target icon",
     },
     {
       title: "Build stronger client relationships",
       description:
         "Clear communication leads to happy clients — and more repeat business.",
-      iconSrc: "/lovable-uploads/8da69680-d578-44b6-a18b-6e5a1ca290ae.png", // Updated emoji/smiley faces icon
+      iconSrc: "/lovable-uploads/8da69680-d578-44b6-a18b-6e5a1ca290ae.png", // Emoji/smiley faces icon
       iconAlt: "Emoji icons",
     },
   ];
@@ -118,12 +143,13 @@ const WhyColorGraph: React.FC = () => {
               iconSrc={feature.iconSrc}
               iconAlt={feature.iconAlt}
               delay={index * 0.1}
+              index={index}
             />
           ))}
         </div>
 
         {/* Second row: 2 cards, centered on larger screens */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8 lg:w-2/3 xl:w-1/2 mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8 lg:w-2/3 mx-auto">
           {features.slice(3).map((feature, index) => (
             <FeatureCard
               key={index + 3}
@@ -132,6 +158,7 @@ const WhyColorGraph: React.FC = () => {
               iconSrc={feature.iconSrc}
               iconAlt={feature.iconAlt}
               delay={(index + 3) * 0.1}
+              index={index + 3}
             />
           ))}
         </div>
