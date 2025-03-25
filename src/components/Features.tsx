@@ -50,7 +50,10 @@ const Features: React.FC = () => {
               <TabsTrigger
                 key={tab.id}
                 value={tab.id}
-                className="relative flex-1 py-3 px-2 text-black rounded-full data-[state=active]:bg-white data-[state=active]:shadow-sm transition-all duration-300 text-center"
+                className="relative flex-1 py-3 px-2 rounded-full transition-all duration-300 text-center text-black"
+                style={{
+                  color: "#000000"
+                }}
               >
                 {tab.label}
                 {activeTab === tab.id && (
