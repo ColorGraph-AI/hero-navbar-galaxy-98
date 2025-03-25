@@ -88,7 +88,7 @@ const WhyColorGraph: React.FC = () => {
       title: "Build stronger client relationships",
       description:
         "Clear communication leads to happy clients — and more repeat business.",
-      iconSrc: "/lovable-uploads/cf19cdaf-2669-43f8-afd3-596f7cf6e058.png", // Emoji/smiley faces icon
+      iconSrc: "/lovable-uploads/8da69680-d578-44b6-a18b-6e5a1ca290ae.png", // Updated emoji/smiley faces icon
       iconAlt: "Emoji icons",
     },
   ];
