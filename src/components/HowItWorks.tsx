@@ -16,7 +16,7 @@ const HowItWorks: React.FC = () => {
       number: 2,
       title: "Send Design Versions",
       description: "Share your latest design directly through the platform.",
-      image: "/lovable-uploads/16d8cd2c-5b06-457d-bc56-6e140ee2153d.png",
+      image: "/lovable-uploads/a9c16fd0-8fb2-4b50-a317-efd0e95b2dc9.png", // Updated to the new image
       imageAlt: "Upload design interface",
     },
     {
@@ -54,7 +54,7 @@ const HowItWorks: React.FC = () => {
       number: 2,
       title: "View Design Versions",
       description: "See the latest designs shared by your designer.",
-      image: "/lovable-uploads/16d8cd2c-5b06-457d-bc56-6e140ee2153d.png",
+      image: "/lovable-uploads/a9c16fd0-8fb2-4b50-a317-efd0e95b2dc9.png", // Updated to the new image
       imageAlt: "Design viewing interface",
     },
     {
