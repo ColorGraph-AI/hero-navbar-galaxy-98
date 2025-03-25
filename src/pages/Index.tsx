@@ -13,9 +13,9 @@ const Index: React.FC = () => {
       <Navbar transparent={true} />
       <Hero />
       <Features />
+      <StatsSection />
       <WhyColorGraph />
       <Solution />
-      <StatsSection />
     </div>
   );
 };
