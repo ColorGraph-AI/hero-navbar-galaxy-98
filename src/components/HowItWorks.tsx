@@ -23,7 +23,7 @@ const HowItWorks: React.FC = () => {
       number: 3,
       title: "Await Client Response",
       description: "Wait for the AI refined and organized client feedback.",
-      image: "/lovable-uploads/4789ddfe-a7b6-4eb4-933f-4730c97fc8ca.png",
+      image: "/lovable-uploads/ae012bef-3fcf-4b59-bc58-98af805286a1.png", // Updated to the new image
       imageAlt: "Refining client feedback interface",
     },
     {
@@ -61,7 +61,7 @@ const HowItWorks: React.FC = () => {
       number: 3,
       title: "Provide Clear Feedback",
       description: "Our AI helps you structure your feedback clearly.",
-      image: "/lovable-uploads/4789ddfe-a7b6-4eb4-933f-4730c97fc8ca.png",
+      image: "/lovable-uploads/ae012bef-3fcf-4b59-bc58-98af805286a1.png", // Updated to the new image
       imageAlt: "Providing feedback interface",
     }
   ];
