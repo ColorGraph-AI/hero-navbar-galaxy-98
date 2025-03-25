@@ -4,8 +4,6 @@ import { motion } from "framer-motion";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const HowItWorks: React.FC = () => {
-  const [activeTab, setActiveTab] = useState("designers");
-
   const designerSteps = [
     {
       number: 1,
@@ -144,30 +142,30 @@ const HowItWorks: React.FC = () => {
               <TabsTrigger 
                 value="designers" 
                 className="rounded-full font-opensans font-semibold data-[state=active]:bg-white data-[state=active]:text-black data-[state=active]:shadow-sm"
-                onClick={() => setActiveTab("designers")}
               >
                 For Designers
               </TabsTrigger>
               <TabsTrigger 
                 value="clients" 
                 className="rounded-full font-opensans font-semibold data-[state=active]:bg-white data-[state=active]:text-black data-[state=active]:shadow-sm"
-                onClick={() => setActiveTab("clients")}
               >
                 For Clients
               </TabsTrigger>
             </TabsList>
+            
+            <TabsContent value="designers" className="mt-8">
+              <div className="overflow-hidden rounded-3xl shadow-sm border border-gray-100">
+                {renderSteps(designerSteps)}
+              </div>
+            </TabsContent>
+            
+            <TabsContent value="clients" className="mt-8">
+              <div className="overflow-hidden rounded-3xl shadow-sm border border-gray-100">
+                {renderSteps(clientSteps)}
+              </div>
+            </TabsContent>
           </Tabs>
         </motion.div>
-
-        <div className="overflow-hidden rounded-3xl shadow-sm border border-gray-100">
-          <TabsContent value="designers" className={`${activeTab === "designers" ? "block" : "hidden"}`}>
-            {renderSteps(designerSteps)}
-          </TabsContent>
-          
-          <TabsContent value="clients" className={`${activeTab === "clients" ? "block" : "hidden"}`}>
-            {renderSteps(clientSteps)}
-          </TabsContent>
-        </div>
       </div>
     </section>
   );
