@@ -8,7 +8,7 @@ const StatCard: React.FC<{
   className?: string;
 }> = ({ description, className }) => {
   return (
-    <Card className={`rounded-3xl p-6 bg-[#FDF5FF] border-none shadow-sm overflow-hidden ${className}`}>
+    <Card className={`rounded-3xl p-6 bg-[#FDF5FF] border-none shadow-sm overflow-hidden ${className} animate-fade-in`}>
       <div className="flex flex-col h-full">
         <p className="text-sm font-normal text-gray-700 font-opensans mb-4">
           {description}
@@ -24,15 +24,15 @@ const StatCard: React.FC<{
 const StatsSection: React.FC = () => {
   return (
     <section className="py-24 border-t border-b border-gray-100">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-8 md:px-12 lg:px-16">
         {/* First Stat Row - Image left, 50% right */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-24 items-center">
-          <div>
+          <div className="animate-slide-in-left" style={{ animationDelay: "0.1s" }}>
             <StatCard 
               description="Key Optimization Inbox vs. Organized AI Dashboard Concept: Show how ColorGraph.AI reduces excessive revisions. Image tiles: Before: A cluttered Inbox filled with scattered feedback emails. After: A clean, AI-powered interface that neatly organizes feedback into actionable tasks. Visual Cues: Contrast between chaos and structure, using UI-inspired elements."
             />
           </div>
-          <div className="flex flex-col justify-center text-left lg:text-left">
+          <div className="flex flex-col justify-center text-left lg:text-left animate-slide-in-right" style={{ animationDelay: "0.3s" }}>
             <h3 className="text-6xl text-brand-purple font-bold font-alexandria mb-4">50%</h3>
             <h4 className="text-3xl font-semibold font-alexandria text-black mb-3">Faster Design Revisions</h4>
             <p className="text-gray-600 font-opensans font-normal">
@@ -43,14 +43,14 @@ const StatsSection: React.FC = () => {
 
         {/* Second Stat Row - 3x left, Image right */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-24 items-center">
-          <div className="flex flex-col justify-center text-left">
+          <div className="flex flex-col justify-center text-left animate-slide-in-left" style={{ animationDelay: "0.5s" }}>
             <h3 className="text-6xl text-brand-purple font-bold font-alexandria mb-4">3x</h3>
             <h4 className="text-3xl font-semibold font-alexandria text-black mb-3">Clearer Client Feedback</h4>
             <p className="text-gray-600 font-opensans font-normal">
               Eliminate misunderstandings with structured, actionable client input.
             </p>
           </div>
-          <div>
+          <div className="animate-slide-in-right" style={{ animationDelay: "0.7s" }}>
             <StatCard 
               description="A speech bubble converting vague comments into precise instructions"
             />
@@ -59,7 +59,7 @@ const StatsSection: React.FC = () => {
 
         {/* Third Stat Row - Image left, 80% right */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div>
+          <div className="animate-slide-in-left" style={{ animationDelay: "0.9s" }}>
             <StatCard 
               description="Revised Concept for 80% Fewer Feedback Loops
 'Complex Version History vs. Streamlined Approval Flow'
@@ -67,7 +67,7 @@ const StatsSection: React.FC = () => {
 • After: A clean, AI-powered approval flow—a single, structured version history where feedback is merged effectively, leading to fewer total revisions."
             />
           </div>
-          <div className="flex flex-col justify-center text-left lg:text-left">
+          <div className="flex flex-col justify-center text-left lg:text-left animate-slide-in-right" style={{ animationDelay: "1.1s" }}>
             <h3 className="text-6xl text-brand-purple font-bold font-alexandria mb-4">80%</h3>
             <h4 className="text-3xl font-semibold font-alexandria text-black mb-3">Fewer Feedback Loops</h4>
             <p className="text-gray-600 font-opensans font-normal">
