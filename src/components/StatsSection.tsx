@@ -101,7 +101,8 @@ const StatsSection: React.FC = () => {
         </div>
       </div>
 
-      <style jsx>{`
+      <style>
+        {`
         .animate-on-scroll {
           transition: opacity 0.8s ease-out, transform 0.8s ease-out;
         }
@@ -115,7 +116,8 @@ const StatsSection: React.FC = () => {
         .animate-slide-in-right {
           transform: translateX(50px);
         }
-      `}</style>
+        `}
+      </style>
     </section>
   );
 };
