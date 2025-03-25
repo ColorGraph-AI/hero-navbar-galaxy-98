@@ -32,7 +32,7 @@ const FAQSection: React.FC = () => {
   ];
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-20 bg-gradient-to-b from-white to-purple-50">
       <div className="container mx-auto px-4 sm:px-6 max-w-5xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -63,11 +63,16 @@ const FAQSection: React.FC = () => {
                 value={`item-${index}`}
                 className={cn(
                   "mb-4 overflow-hidden rounded-xl border border-purple-100",
-                  "bg-white/50 backdrop-blur-sm transition-all",
-                  "hover:border-purple-200 hover:shadow-md"
+                  "bg-white/70 backdrop-blur-sm transition-all",
+                  "hover:border-purple-300 hover:shadow-md"
                 )}
               >
-                <AccordionTrigger className="px-6 py-4 text-left font-alexandria text-lg font-semibold">
+                <AccordionTrigger 
+                  className={cn(
+                    "px-6 py-4 text-left font-alexandria text-lg font-semibold no-underline",
+                    "data-[state=open]:text-brand-purple transition-colors duration-200"
+                  )}
+                >
                   {item.question}
                 </AccordionTrigger>
                 <AccordionContent className="px-6 pb-4 text-gray-700 font-['Open_Sans']">
