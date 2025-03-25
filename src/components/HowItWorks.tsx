@@ -9,7 +9,7 @@ const HowItWorks: React.FC = () => {
       number: 1,
       title: "Invite Your Clients",
       description: "Add your client to your ColorGraph.AI project in seconds.",
-      image: "/lovable-uploads/21d45aa5-d1d5-4eed-a2f8-43be2142d43e.png",
+      image: "/lovable-uploads/3bbf0a76-71b2-46b3-813e-6fede52c695d.png",
       imageAlt: "Add your clients interface",
     },
     {
@@ -47,7 +47,7 @@ const HowItWorks: React.FC = () => {
       number: 1,
       title: "Receive an Invitation",
       description: "Get invited to your designer's ColorGraph.AI workspace.",
-      image: "/lovable-uploads/21d45aa5-d1d5-4eed-a2f8-43be2142d43e.png",
+      image: "/lovable-uploads/3bbf0a76-71b2-46b3-813e-6fede52c695d.png",
       imageAlt: "Client invitation interface",
     },
     {
@@ -78,59 +78,55 @@ const HowItWorks: React.FC = () => {
           >
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
               {/* Desktop layout */}
-              <div className="hidden md:flex items-center">
-                {/* Content - always goes on the left for odd steps, right for even steps */}
-                <div className={`w-1/2 ${index % 2 === 1 ? 'order-2 pl-12' : 'pr-12'}`}>
+              <div className="hidden md:flex items-center justify-between">
+                {/* Content section - alternating left/right */}
+                <div className={`w-[45%] ${index % 2 === 1 ? 'order-2' : ''}`}>
                   <motion.div
                     initial={{ opacity: 0, x: index % 2 === 1 ? 20 : -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.5 }}
                     viewport={{ once: true }}
-                    className={`${index % 2 === 1 ? 'ml-auto text-right' : ''}`}
                   >
-                    <h3 className="text-3xl font-alexandria font-bold mb-3">
-                      <span className="mr-2">{step.number}.</span>
-                      {step.title}
-                    </h3>
-                    <p className="text-gray-600 font-opensans text-lg max-w-xl">{step.description}</p>
+                    <div className="flex items-baseline mb-3">
+                      <span className="text-2xl font-bold mr-3">{step.number}.</span>
+                      <h3 className="text-3xl font-alexandria font-bold">{step.title}</h3>
+                    </div>
+                    <p className="text-gray-600 font-opensans text-lg">{step.description}</p>
                   </motion.div>
                 </div>
 
-                {/* Image - always goes on the right for odd steps, left for even steps */}
-                <div className={`w-1/2 ${index % 2 === 1 ? 'order-1' : 'order-2'}`}>
+                {/* Image section - alternating right/left */}
+                <div className={`w-[50%] ${index % 2 === 1 ? 'order-1' : ''}`}>
                   <motion.div
                     initial={{ opacity: 0, scale: 0.95 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.5 }}
                     viewport={{ once: true }}
-                    className="max-w-lg mx-auto"
                   >
                     <img
                       src={step.image}
                       alt={step.imageAlt}
-                      className="w-full h-auto rounded-xl shadow-md border border-gray-100"
+                      className="w-full h-auto rounded-xl shadow-lg"
                     />
                   </motion.div>
                 </div>
               </div>
 
               {/* Mobile layout */}
-              <div className="md:hidden">
-                <div className="flex flex-col space-y-8">
-                  <div className="text-center">
-                    <h3 className="text-3xl font-alexandria font-bold mb-3">
-                      <span className="mr-2">{step.number}.</span>
-                      {step.title}
-                    </h3>
-                    <p className="text-gray-600 font-opensans text-lg">{step.description}</p>
+              <div className="md:hidden space-y-6">
+                <div className="text-center mb-2">
+                  <div className="flex items-baseline justify-center mb-3">
+                    <span className="text-2xl font-bold mr-3">{step.number}.</span>
+                    <h3 className="text-3xl font-alexandria font-bold">{step.title}</h3>
                   </div>
-                  <div className="mx-auto max-w-sm">
-                    <img
-                      src={step.image}
-                      alt={step.imageAlt}
-                      className="w-full h-auto rounded-xl shadow-md border border-gray-100"
-                    />
-                  </div>
+                  <p className="text-gray-600 font-opensans text-lg px-4">{step.description}</p>
+                </div>
+                <div>
+                  <img
+                    src={step.image}
+                    alt={step.imageAlt}
+                    className="w-full h-auto rounded-xl shadow-lg"
+                  />
                 </div>
               </div>
             </div>
@@ -171,15 +167,13 @@ const HowItWorks: React.FC = () => {
                 </TabsTrigger>
               </TabsList>
             
-              {/* Tabs content */}
-              <div className="mt-0">
-                <TabsContent value="designers">
-                  {/* This empty div is needed to make the TabsContent work correctly */}
-                </TabsContent>
-                <TabsContent value="clients">
-                  {/* This empty div is needed to make the TabsContent work correctly */}
-                </TabsContent>
-              </div>
+              {/* TabsContent needs to be inside the Tabs component */}
+              <TabsContent value="designers" className="mt-0">
+                {/* This empty div is needed for TabsContent to work correctly */}
+              </TabsContent>
+              <TabsContent value="clients" className="mt-0">
+                {/* This empty div is needed for TabsContent to work correctly */}
+              </TabsContent>
             </Tabs>
           </div>
         </motion.div>
