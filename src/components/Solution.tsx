@@ -50,13 +50,7 @@ const Solution: React.FC = () => {
 
       {/* Floating Bubbles */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {/* Top Left Bubble */}
-        <Bubble 
-          src="/lovable-uploads/a2ec8073-5ce4-4f25-97b1-f3844db60df9.png"
-          alt="Just No"
-          className="w-28 h-28 left-[15%] top-[10%]"
-          duration={7}
-        />
+        {/* Top Left Bubble has been removed */}
         
         {/* Top Right Bubble */}
         <Bubble 
