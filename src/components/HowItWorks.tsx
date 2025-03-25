@@ -37,7 +37,7 @@ const HowItWorks: React.FC = () => {
       number: 5,
       title: "Repeat Effortlessly",
       description: "Continue the process smoothly for each revision round.",
-      image: "/lovable-uploads/b8b35ae4-8313-4c02-883e-23b12a88d7d5.png",
+      image: "/lovable-uploads/497a0dd7-cf5c-44c2-84ab-f404a9265651.png", // Updated to the new image
       imageAlt: "Revision tracking interface",
     }
   ];
