@@ -35,7 +35,7 @@ const Features: React.FC = () => {
   ];
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-20 bg-white" id="features">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-4xl font-bold text-center mb-12">Features</h2>
         
@@ -45,12 +45,12 @@ const Features: React.FC = () => {
           onValueChange={setActiveTab}
           className="w-full max-w-4xl mx-auto"
         >
-          <TabsList className="w-full h-auto p-1 bg-[#FCF1FF] rounded-full mb-10">
+          <TabsList className="w-full h-auto p-1 bg-[#FCF1FF] rounded-full mb-10 flex justify-between">
             {featureTabs.map((tab) => (
               <TabsTrigger
                 key={tab.id}
                 value={tab.id}
-                className="relative py-3 px-6 text-black rounded-full data-[state=active]:text-black data-[state=active]:bg-white data-[state=active]:shadow-md transition-all duration-300"
+                className="relative flex-1 py-3 px-2 text-black rounded-full data-[state=active]:text-black data-[state=active]:bg-white data-[state=active]:shadow-sm transition-all duration-300 text-center"
               >
                 {tab.label}
                 {activeTab === tab.id && (
