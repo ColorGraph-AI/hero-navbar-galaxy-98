@@ -28,7 +28,8 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
 }) => {
   // Function to highlight specified words in the quote
   const renderQuoteWithHighlights = () => {
-    let parts = [quote];
+    // Initialize as a React Node array which can contain strings and JSX elements
+    let parts: React.ReactNode[] = [quote];
     
     highlighted.forEach((word) => {
       parts = parts.flatMap((part) => {
