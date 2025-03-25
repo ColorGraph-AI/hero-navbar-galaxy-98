@@ -72,8 +72,8 @@ const StatsSection: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 lg:gap-12 mb-16 md:mb-24 items-center">
           <div className="flex flex-col justify-center text-left animate-on-scroll animate-slide-in-left opacity-0" style={{ animationDelay: "0.5s", transitionDuration: "0.8s" }}>
             <h3 className="text-4xl sm:text-5xl lg:text-6xl text-brand-purple font-bold font-alexandria mb-3 md:mb-4 transform transition-transform duration-500 hover:translate-x-2">3x</h3>
-            <h4 className="text-2xl sm:text-2xl lg:text-3xl font-semibold font-alexandria text-black mb-2 md:mb-3">Clearer Client Feedback</h4>
-            <p className="text-gray-600 font-opensans font-normal max-w-md">
+            <h4 className="text-2xl sm:text-2xl lg:text-3xl font-semibold font-alexandria text-black mb-2 md:mb-3 text-left">Clearer Client Feedback</h4>
+            <p className="text-gray-600 font-opensans font-normal max-w-md text-left">
               Eliminate misunderstandings with structured, actionable client input.
             </p>
           </div>
