@@ -1,5 +1,5 @@
 
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { motion } from "framer-motion";
 
@@ -12,6 +12,8 @@ interface FeatureTab {
 
 const Features: React.FC = () => {
   const [activeTab, setActiveTab] = useState<string>("ai-analysis");
+  const [contentHeight, setContentHeight] = useState<number>(0);
+  const contentRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
   
   const featureTabs: FeatureTab[] = [
     {
@@ -33,6 +35,15 @@ const Features: React.FC = () => {
       description: "Connects with your existing design and project management tools for a smooth, uninterrupted workflow."
     }
   ];
+
+  // Update content height when active tab changes
+  useEffect(() => {
+    const activeContent = contentRefs.current[activeTab];
+    if (activeContent) {
+      // Add a small buffer to prevent any potential scrollbar flicker
+      setContentHeight(activeContent.offsetHeight + 10);
+    }
+  }, [activeTab]);
 
   return (
     <section className="py-20 bg-white" id="features">
@@ -66,17 +77,23 @@ const Features: React.FC = () => {
             ))}
           </TabsList>
           
-          <div className="bg-[#FCF1FF] rounded-3xl p-8 overflow-hidden">
+          <div 
+            className="bg-[#FCF1FF] rounded-3xl p-8 overflow-hidden transition-all duration-300"
+            style={{ minHeight: `${contentHeight}px` }}
+          >
             {featureTabs.map((tab) => (
               <TabsContent 
                 key={tab.id} 
                 value={tab.id}
-                className="mt-0 data-[state=active]:animate-fade-in"
-                style={{ 
-                  animationDelay: '0.1s'
-                }}
+                className={`mt-0 data-[state=active]:animate-fade-in transition-opacity duration-300 ${
+                  activeTab === tab.id ? "block" : "hidden"
+                }`}
+                style={{ animationDelay: '0.1s' }}
               >
-                <div className="overflow-hidden border-4 border-[#FCF1FF] rounded-2xl bg-white">
+                <div 
+                  ref={el => contentRefs.current[tab.id] = el}
+                  className="overflow-hidden border-4 border-[#FCF1FF] rounded-2xl bg-white"
+                >
                   <img 
                     src={tab.imageUrl} 
                     alt={tab.label} 
