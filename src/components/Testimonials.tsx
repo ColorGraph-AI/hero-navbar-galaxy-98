@@ -1,4 +1,5 @@
-import React, { useRef } from "react";
+
+import React from "react";
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import {
@@ -15,7 +16,6 @@ type TestimonialCardProps = {
   quote: string;
   name: string;
   position: string;
-  highlighted?: string[];
 };
 
 const TestimonialCard: React.FC<TestimonialCardProps> = ({
@@ -23,36 +23,20 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
   quote,
   name,
   position,
-  highlighted = [],
 }) => {
-  // Function to highlight specified words in the quote
-  const renderQuoteWithHighlights = () => {
-    // Initialize as a React Node array which can contain strings and JSX elements
-    let parts: React.ReactNode[] = [quote];
-    
-    highlighted.forEach((word) => {
-      parts = parts.flatMap((part) => {
-        if (typeof part === 'string') {
-          const splitText = part.split(new RegExp(`(${word})`, 'gi'));
-          return splitText.map((text, i) => {
-            if (text.toLowerCase() === word.toLowerCase()) {
-              return <span key={i} className="font-bold text-brand-purple">{text}</span>;
-            }
-            return text;
-          });
-        }
-        return part;
-      });
-    });
-    
-    return parts;
-  };
-
   return (
-    <Card className="rounded-3xl border-none shadow-sm h-full" style={{ 
+    <Card className="rounded-3xl border-none shadow-sm h-full relative overflow-hidden" style={{ 
       background: "linear-gradient(90deg, rgba(255,231,252,1) 0%, rgba(248,228,255,1) 100%)" 
     }}>
-      <CardContent className="p-6 flex flex-col h-full">
+      {/* Background gradient image with 40% opacity */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center opacity-40 z-0" 
+        style={{ 
+          backgroundImage: `url(/lovable-uploads/39ef4e61-617b-4ff5-9524-823178b598a9.png)` 
+        }}
+      ></div>
+      
+      <CardContent className="p-6 flex flex-col h-full relative z-10">
         {/* Stars - using the single image */}
         <div className="flex justify-center mb-4">
           <img
@@ -63,12 +47,12 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
         </div>
 
         {/* Quote */}
-        <div className="text-gray-800 text-lg mb-6 flex-grow text-center">
-          {renderQuoteWithHighlights()}
+        <div className="text-gray-800 text-lg mb-6 flex-grow text-center font-['Open_Sans'] font-semibold">
+          {quote}
         </div>
 
         {/* Author info */}
-        <div className="mt-auto text-center">
+        <div className="mt-auto text-center font-['Open_Sans']">
           <p className="font-alexandria font-bold text-lg">{name}</p>
           <p className="text-gray-600">{position}</p>
         </div>
@@ -92,35 +76,30 @@ const Testimonials: React.FC = () => {
       quote: '"ColorGraph.AI cut my revision time in half! Now I can focus on creativity while ensuring my clients are always happy."',
       name: "Alex M.",
       position: "Freelance Designer",
-      highlighted: ["ColorGraph.AI", "revision time in half", "creativity", "clients are always happy"],
     },
     {
       stars: 5,
       quote: '"I\'ve saved hours every week thanks to ColorGraph.AI. No more endless email threads with unclear feedback!"',
       name: "David L.",
       position: "UX/UI Designer",
-      highlighted: ["saved hours", "ColorGraph.AI", "email threads", "unclear feedback"],
     },
     {
       stars: 5,
       quote: '"Finally, a tool that understands the struggle of client feedback. ColorGraph.AI makes revisions painless."',
       name: "Jasmine R.",
       position: "Creative Director at Studio XYZ",
-      highlighted: ["tool", "understands", "struggle of client feedback", "ColorGraph.AI", "revisions painless"],
     },
     {
       stars: 5,
       quote: '"The AI actually understands design language! It translates vague feedback into actionable tasks."',
       name: "Thomas W.",
       position: "Brand Designer",
-      highlighted: ["AI", "understands design language", "translates", "vague feedback", "actionable tasks"],
     },
     {
       stars: 5,
       quote: '"Since using ColorGraph.AI, my client satisfaction has increased by 40%. The clarity it brings is invaluable."',
       name: "Sarah K.",
       position: "Art Director",
-      highlighted: ["ColorGraph.AI", "client satisfaction", "increased by 40%", "clarity"],
     },
   ];
 
@@ -153,7 +132,6 @@ const Testimonials: React.FC = () => {
                       quote={testimonial.quote}
                       name={testimonial.name}
                       position={testimonial.position}
-                      highlighted={testimonial.highlighted}
                     />
                   </CarouselItem>
                 ))}
