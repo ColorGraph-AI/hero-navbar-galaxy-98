@@ -26,11 +26,11 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
       className="relative bg-white rounded-3xl p-8 shadow-sm border border-gray-50 overflow-hidden hover:shadow-md transition-shadow duration-300"
     >
       {/* Upscaled, blurred background icon */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-visible">
         <img
           src={iconSrc}
           alt=""
-          className="w-64 h-64 opacity-20 blur-2xl"
+          className="w-80 h-80 opacity-25 blur-3xl transform scale-125"
         />
       </div>
 
