@@ -1,5 +1,5 @@
 
-import React, { useRef, useEffect } from "react";
+import React, { useRef } from "react";
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import {
@@ -10,7 +10,6 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import useEmblaCarousel from "embla-carousel-react";
-import { ScrollArea } from "./ui/scroll-area";
 
 type TestimonialCardProps = {
   stars: number;
@@ -30,6 +29,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
   // Function to highlight specified words in the quote
   const renderQuoteWithHighlights = () => {
     let parts = [quote];
+    
     highlighted.forEach((word) => {
       parts = parts.flatMap((part) => {
         if (typeof part === 'string') {
@@ -44,18 +44,21 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
         return part;
       });
     });
+    
     return parts;
   };
 
   return (
-    <Card className="bg-[#FDF6FF] border-none shadow-sm h-full">
+    <Card className="rounded-3xl border-none shadow-sm h-full" style={{ 
+      background: "linear-gradient(90deg, rgba(255,231,252,1) 0%, rgba(248,228,255,1) 100%)" 
+    }}>
       <CardContent className="p-6 flex flex-col h-full">
         {/* Stars */}
         <div className="flex mb-4">
           {Array.from({ length: stars }).map((_, i) => (
             <img
               key={i}
-              src="/lovable-uploads/9d8f7fef-6618-4d3f-a7fa-cdcee0906d8b.png"
+              src="/lovable-uploads/05706263-fc57-4667-b04b-9bfc9df44a41.png"
               alt="Star"
               className="w-6 h-6 mr-1"
             />
@@ -63,14 +66,14 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
         </div>
 
         {/* Quote */}
-        <div className="text-gray-700 text-lg mb-6 flex-grow">
+        <div className="text-gray-800 text-lg mb-6 flex-grow text-center">
           {renderQuoteWithHighlights()}
         </div>
 
         {/* Author info */}
-        <div className="mt-auto">
+        <div className="mt-auto text-center">
           <p className="font-alexandria font-bold text-lg">{name}</p>
-          <p className="text-gray-500">{position}</p>
+          <p className="text-gray-600">{position}</p>
         </div>
       </CardContent>
     </Card>
@@ -89,17 +92,17 @@ const Testimonials: React.FC = () => {
   const testimonials = [
     {
       stars: 5,
-      quote: '"I\'ve saved hours every week thanks to ColorGraph.AI. No more endless email threads with unclear feedback!"',
-      name: "David L.",
-      position: "UX/UI Designer",
-      highlighted: ["saved hours", "ColorGraph.AI", "email threads", "unclear feedback"],
-    },
-    {
-      stars: 5,
       quote: '"ColorGraph.AI cut my revision time in half! Now I can focus on creativity while ensuring my clients are always happy."',
       name: "Alex M.",
       position: "Freelance Designer",
       highlighted: ["ColorGraph.AI", "revision time in half", "creativity", "clients are always happy"],
+    },
+    {
+      stars: 5,
+      quote: '"I\'ve saved hours every week thanks to ColorGraph.AI. No more endless email threads with unclear feedback!"',
+      name: "David L.",
+      position: "UX/UI Designer",
+      highlighted: ["saved hours", "ColorGraph.AI", "email threads", "unclear feedback"],
     },
     {
       stars: 5,
@@ -124,14 +127,6 @@ const Testimonials: React.FC = () => {
     },
   ];
 
-  // Add mask effect to create the fading effect on the sides
-  useEffect(() => {
-    if (emblaRef && emblaRef.current) {
-      emblaRef.current.style.mask = "linear-gradient(90deg, transparent 0%, black 15%, black 85%, transparent 100%)";
-      emblaRef.current.style.webkitMask = "linear-gradient(90deg, transparent 0%, black 15%, black 85%, transparent 100%)";
-    }
-  }, [emblaRef]);
-
   return (
     <section className="py-20 bg-white">
       <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
@@ -147,9 +142,12 @@ const Testimonials: React.FC = () => {
           </h2>
         </motion.div>
 
-        <div className="relative mx-auto">
+        <div className="relative mx-auto overflow-hidden">
+          <div className="absolute inset-y-0 left-0 w-[15%] z-10 bg-gradient-to-r from-white to-transparent pointer-events-none"></div>
+          <div className="absolute inset-y-0 right-0 w-[15%] z-10 bg-gradient-to-l from-white to-transparent pointer-events-none"></div>
+          
           <Carousel className="w-full">
-            <div className="relative overflow-hidden" ref={emblaRef}>
+            <div ref={emblaRef} className="overflow-hidden">
               <CarouselContent>
                 {testimonials.map((testimonial, index) => (
                   <CarouselItem key={index} className="md:basis-1/3 lg:basis-1/3 pl-4">
