@@ -72,11 +72,11 @@ const Solution: React.FC = () => {
           delay={0.8}
         />
         
-        {/* Middle Right Bubble */}
+        {/* Middle Right Bubble - Moved further right */}
         <Bubble 
           src="/lovable-uploads/35246a1c-36ce-4122-8518-0020306121e8.png"
           alt="Make it POP more"
-          className="w-32 h-32 right-[25%] bottom-[30%]"
+          className="w-32 h-32 right-[5%] bottom-[30%]"
           duration={7.5}
           delay={1.2}
         />
