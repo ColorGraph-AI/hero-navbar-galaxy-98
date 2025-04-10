@@ -10,6 +10,7 @@ import HowItWorks from "@/components/HowItWorks";
 import Testimonials from "@/components/Testimonials";
 import FAQSection from "@/components/FAQ";
 import WaitlistSection from "@/components/WaitlistSection";
+import Footer from "@/components/Footer";
 
 const Index: React.FC = () => {
   return (
@@ -24,6 +25,7 @@ const Index: React.FC = () => {
       <Testimonials />
       <FAQSection />
       <WaitlistSection />
+      <Footer />
     </div>
   );
 };
