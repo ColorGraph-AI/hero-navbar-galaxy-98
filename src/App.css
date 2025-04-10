@@ -1,3 +1,4 @@
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
@@ -39,4 +40,102 @@
 
 .read-the-docs {
   color: #888;
+}
+
+/* Add subtle parallax effect to sections */
+.parallax-container {
+  transform-style: preserve-3d;
+  transform: perspective(1000px);
+}
+
+.parallax-element {
+  transform: translateZ(50px);
+}
+
+/* Enhance transitions between sections */
+.section-wrapper {
+  position: relative;
+  z-index: 1;
+  transform: translateZ(0);
+  transition: transform 0.3s ease;
+}
+
+/* Enhance hover effects on interactive elements */
+.enhanced-hover {
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.enhanced-hover::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #A644B3, #FF8BD5);
+  transition: width 0.3s ease;
+}
+
+.enhanced-hover:hover::after {
+  width: 100%;
+}
+
+.enhanced-hover:hover {
+  transform: translateY(-2px);
+  color: #A644B3;
+}
+
+/* Breathing animation effect */
+@keyframes breathing {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+  100% { transform: scale(1); }
+}
+
+.breathing {
+  animation: breathing 5s infinite ease-in-out;
+}
+
+/* Gradient text effect */
+.gradient-text {
+  background: linear-gradient(90deg, #A644B3, #FF8BD5);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+
+/* Pulse effect on focus */
+@keyframes pulse-ring {
+  0% { box-shadow: 0 0 0 0 rgba(166, 68, 179, 0.7); }
+  70% { box-shadow: 0 0 0 10px rgba(166, 68, 179, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(166, 68, 179, 0); }
+}
+
+.pulse-focus:focus {
+  animation: pulse-ring 1.5s ease-out;
+}
+
+/* Smooth page transitions */
+.page-transition-enter {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.page-transition-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.page-transition-exit {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.page-transition-exit-active {
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 300ms, transform 300ms;
 }

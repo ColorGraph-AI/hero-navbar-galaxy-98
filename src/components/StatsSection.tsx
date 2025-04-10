@@ -1,8 +1,10 @@
+
 import React, { useEffect, useRef } from "react";
 import { Card } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { Separator } from "@/components/ui/separator";
+import { Sparkles } from "lucide-react";
 
 const StatCard: React.FC<{
   description?: string;
@@ -10,7 +12,7 @@ const StatCard: React.FC<{
   className?: string;
 }> = ({ description, imageUrl, className }) => {
   return (
-    <Card className={`rounded-3xl p-6 bg-[#FDF5FF] border-none shadow-sm overflow-hidden ${className} animate-fade-in hover:shadow-md transition-shadow duration-300`}>
+    <Card className={`rounded-3xl p-6 bg-[#FDF5FF] border-none shadow-sm overflow-hidden ${className} animate-fade-in hover:shadow-md transition-shadow duration-300 card-hover`}>
       <div className="flex flex-col h-full">
         {description && (
           <p className="text-sm font-normal text-gray-700 font-opensans mb-4">
@@ -19,13 +21,25 @@ const StatCard: React.FC<{
         )}
         <div className="mt-auto">
           {imageUrl ? (
-            <img src={imageUrl} alt="Stat visualization" className="w-full h-auto rounded-xl" />
+            <img src={imageUrl} alt="Stat visualization" className="w-full h-auto rounded-xl glow-effect" />
           ) : (
             <Skeleton className="w-full h-40 rounded-xl" />
           )}
         </div>
       </div>
     </Card>
+  );
+};
+
+// Decorative separator component
+const DecorativeSeparator: React.FC<{ className?: string }> = ({ className = "" }) => {
+  return (
+    <div className={`relative flex items-center justify-center my-8 ${className}`}>
+      <div className="fancy-separator"></div>
+      <div className="absolute">
+        <Sparkles className="h-6 w-6 text-brand-purple opacity-70" />
+      </div>
+    </div>
   );
 };
 
@@ -48,6 +62,14 @@ const StatsSection: React.FC = () => {
     const animatedElements = sectionRef.current?.querySelectorAll(".animate-on-scroll");
     animatedElements?.forEach((el) => observer.observe(el));
 
+    // Add staggered animation to numbers
+    const numberElements = sectionRef.current?.querySelectorAll(".stat-number");
+    numberElements?.forEach((el, index) => {
+      setTimeout(() => {
+        el.classList.add("stagger-visible");
+      }, index * 200);
+    });
+
     return () => {
       animatedElements?.forEach((el) => observer.unobserve(el));
     };
@@ -56,7 +78,7 @@ const StatsSection: React.FC = () => {
   return (
     <section
       ref={sectionRef}
-      className="py-12 md:py-16 lg:py-24 border-t border-b border-gray-100 overflow-hidden"
+      className="py-12 md:py-16 lg:py-24 border-t border-b border-gray-100 overflow-hidden section-transition"
       id="stats"
     >
       {/* Increased horizontal padding */}
@@ -69,14 +91,15 @@ const StatsSection: React.FC = () => {
             className="flex flex-col justify-center text-left animate-on-scroll animate-slide-in-left opacity-0 order-1 lg:order-2"
             style={{ animationDelay: "0.3s", transitionDuration: "0.8s" }}
           >
-            <h3 className="text-4xl sm:text-5xl lg:text-6xl text-brand-purple font-bold font-alexandria mb-3 md:mb-4 transform transition-transform duration-500 hover:translate-x-2">
+            <h3 className="text-4xl sm:text-5xl lg:text-6xl text-brand-purple font-bold font-alexandria mb-3 md:mb-4 transform transition-transform duration-500 hover:translate-x-2 stat-number stagger-item">
               50%
             </h3>
             <h4 className="text-2xl sm:text-2xl lg:text-3xl font-semibold font-alexandria text-black mb-2 md:mb-3">
               Faster Design Revisions
             </h4>
-            <p className="text-gray-600 font-opensans font-normal max-w-md">
+            <p className="text-gray-600 font-opensans font-normal max-w-md relative">
               Cut your revision time in half with AI-powered feedback processing.
+              <span className="absolute -right-4 top-0 shimmer-effect w-20 h-full opacity-50"></span>
             </p>
           </div>
 
@@ -91,8 +114,8 @@ const StatsSection: React.FC = () => {
           </div>
         </div>
 
-        {/* Thin line separator */}
-        <Separator className="my-8 w-full mx-auto bg-gray-200 h-px" />
+        {/* Decorative separator instead of thin line */}
+        <DecorativeSeparator />
 
         {/* Second Stat Row: Text on left (text aligned right on large screens), image on right */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 lg:gap-12 mb-16 md:mb-24 items-center">
@@ -101,14 +124,15 @@ const StatsSection: React.FC = () => {
             className="flex flex-col justify-center text-left lg:text-right animate-on-scroll animate-slide-in-left opacity-0 order-1 lg:order-1"
             style={{ animationDelay: "0.5s", transitionDuration: "0.8s" }}
           >
-            <h3 className="text-4xl sm:text-5xl lg:text-6xl text-brand-purple font-bold font-alexandria mb-3 md:mb-4 transform transition-transform duration-500 hover:translate-x-2">
+            <h3 className="text-4xl sm:text-5xl lg:text-6xl text-brand-purple font-bold font-alexandria mb-3 md:mb-4 transform transition-transform duration-500 hover:translate-x-2 stat-number stagger-item">
               3x
             </h3>
             <h4 className="text-2xl sm:text-2xl lg:text-3xl font-semibold font-alexandria text-black mb-2 md:mb-3">
               Clearer Client Feedback
             </h4>
-            <p className="text-gray-600 font-opensans font-normal max-w-md lg:ml-auto">
+            <p className="text-gray-600 font-opensans font-normal max-w-md lg:ml-auto relative">
               Eliminate misunderstandings with structured, actionable client input.
+              <span className="absolute -left-4 top-0 shimmer-effect w-20 h-full opacity-50 lg:left-auto lg:-right-4"></span>
             </p>
           </div>
 
@@ -123,8 +147,8 @@ const StatsSection: React.FC = () => {
           </div>
         </div>
 
-        {/* Thin line separator */}
-        <Separator className="my-8 w-full mx-auto bg-gray-200 h-px" />
+        {/* Decorative separator instead of thin line */}
+        <DecorativeSeparator />
 
         {/* Third Stat Row: Text on right (large), image on left (large) */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 lg:gap-12 items-center">
@@ -133,20 +157,21 @@ const StatsSection: React.FC = () => {
             className="flex flex-col justify-center text-left animate-on-scroll animate-slide-in-left opacity-0 order-1 lg:order-2"
             style={{ animationDelay: "1.1s", transitionDuration: "0.8s" }}
           >
-            <h3 className="text-4xl sm:text-5xl lg:text-6xl text-brand-purple font-bold font-alexandria mb-3 md:mb-4 transform transition-transform duration-500 hover:translate-x-2">
+            <h3 className="text-4xl sm:text-5xl lg:text-6xl text-brand-purple font-bold font-alexandria mb-3 md:mb-4 transform transition-transform duration-500 hover:translate-x-2 stat-number stagger-item">
               80%
             </h3>
             <h4 className="text-2xl sm:text-2xl lg:text-3xl font-semibold font-alexandria text-black mb-2 md:mb-3">
               Fewer Feedback Loops
             </h4>
-            <p className="text-gray-600 font-opensans font-normal max-w-md">
+            <p className="text-gray-600 font-opensans font-normal max-w-md relative">
               Reduce the endless back-and-forth and finalize designs faster.
+              <span className="absolute -right-4 top-0 shimmer-effect w-20 h-full opacity-50"></span>
             </p>
           </div>
 
           {/* Image/Card second in DOM (appears below on mobile), left on large screens */}
           <div
-            className="animate-on-scroll animate-slide-in-right opacity-0 order-2 lg:order-1"
+            className="animate-on-scroll animate-slide-in-right opacity-0 order-2 lg:order-1 gentle-bounce"
             style={{ animationDelay: "0.9s", transitionDuration: "0.8s" }}
           >
             <StatCard
