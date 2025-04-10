@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { useWaitlist } from "@/contexts/WaitlistContext";
 
 interface NavbarProps {
   transparent?: boolean;
@@ -14,6 +15,7 @@ const Navbar: React.FC<NavbarProps> = ({
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const isMobile = useIsMobile();
+  const { openWaitlistModal } = useWaitlist();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -76,7 +78,10 @@ const Navbar: React.FC<NavbarProps> = ({
               animationDelay: '0.6s'
             }}
           >
-            <Button className="cta-button font-alexandria font-semibold bg-brand-purple hover:bg-brand-purple/90 text-white px-6 py-2 rounded-full">
+            <Button 
+              className="cta-button font-alexandria font-semibold bg-brand-purple hover:bg-brand-purple/90 text-white px-6 py-2 rounded-full"
+              onClick={openWaitlistModal}
+            >
               Join our waitlist !
             </Button>
           </div>

@@ -3,8 +3,11 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { useWaitlist } from "@/contexts/WaitlistContext";
 
 const WaitlistSection: React.FC = () => {
+  const { openWaitlistModal } = useWaitlist();
+  
   return (
     <section className="py-20">
       <div className="container mx-auto px-4 sm:px-6 max-w-6xl">
@@ -30,7 +33,7 @@ const WaitlistSection: React.FC = () => {
               </p>
               <Button 
                 className="cta-button font-alexandria font-semibold bg-brand-purple hover:bg-brand-purple/90 text-white px-6 py-2 rounded-full"
-                onClick={() => window.open('#', '_blank')}
+                onClick={openWaitlistModal}
               >
                 Join our waitlist !
               </Button>

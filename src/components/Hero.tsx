@@ -3,8 +3,11 @@ import React from "react";
 import { Button } from "@/components/ui/button";
 import FloatingElements from "./FloatingElements";
 import TrustedBy from "./TrustedBy";
+import { useWaitlist } from "@/contexts/WaitlistContext";
 
 const Hero: React.FC = () => {
+  const { openWaitlistModal } = useWaitlist();
+  
   return (
     <div className="relative pt-20 overflow-hidden">
       {/* Background image */}
@@ -50,7 +53,10 @@ const Hero: React.FC = () => {
           
           {/* CTA Button */}
           <div className="mt-10 animate-fade-in" style={{ animationDelay: '0.7s' }}>
-            <Button className="cta-button font-alexandria font-semibold bg-brand-purple hover:bg-brand-purple/90 text-white px-8 py-6 text-lg rounded-full shadow-lg">
+            <Button 
+              className="cta-button font-alexandria font-semibold bg-brand-purple hover:bg-brand-purple/90 text-white px-8 py-6 text-lg rounded-full shadow-lg"
+              onClick={openWaitlistModal}
+            >
               Join our waitlist !
             </Button>
           </div>
