@@ -119,7 +119,7 @@ const StatsSection: React.FC = () => {
             style={{ animationDelay: "0.7s", transitionDuration: "0.8s" }}
           >
             <StatCard
-              description="A speech bubble converting vague comments into precise instructions"
+              imageUrl="/lovable-uploads/c614fc72-8c12-42c9-ae50-175128152aaf.png"
             />
           </div>
         </div>
