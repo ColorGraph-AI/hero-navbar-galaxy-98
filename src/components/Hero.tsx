@@ -1,7 +1,6 @@
 
 import React from "react";
 import { Button } from "@/components/ui/button";
-import FloatingElements from "./FloatingElements";
 import TrustedBy from "./TrustedBy";
 import { useWaitlist } from "@/contexts/WaitlistContext";
 
@@ -28,9 +27,6 @@ const Hero: React.FC = () => {
           background: "linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 11%, rgba(255,255,255,0.7) 59%, rgba(255,255,255,1) 100%)",
         }}
       />
-      
-      {/* Floating 3D elements - moved above to ensure they're visible */}
-      <FloatingElements />
       
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="flex flex-col items-center justify-center min-h-[85vh] text-center py-16 md:py-24">
