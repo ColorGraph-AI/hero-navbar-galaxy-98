@@ -52,14 +52,7 @@ const Solution: React.FC = () => {
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {/* Top Left Bubble has been removed */}
         
-        {/* Top Right Bubble */}
-        <Bubble 
-          src="/lovable-uploads/d5a23bad-9219-48e8-8aa7-51bb15fed06d.png"
-          alt="Doesn't look right"
-          className="w-36 h-36 right-[10%] top-[15%]"
-          duration={9}
-          delay={1}
-        />
+        {/* Top Right Bubble has been removed */}
         
         {/* Bottom Left Large Bubble */}
         <Bubble 
