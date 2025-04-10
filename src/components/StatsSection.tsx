@@ -3,8 +3,6 @@ import React, { useEffect, useRef } from "react";
 import { Card } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useIsMobile } from "@/hooks/use-mobile";
-import { Separator } from "@/components/ui/separator";
-import { Sparkles } from "lucide-react";
 
 const StatCard: React.FC<{
   description?: string;
@@ -28,18 +26,6 @@ const StatCard: React.FC<{
         </div>
       </div>
     </Card>
-  );
-};
-
-// Decorative separator component
-const DecorativeSeparator: React.FC<{ className?: string }> = ({ className = "" }) => {
-  return (
-    <div className={`relative flex items-center justify-center my-8 ${className}`}>
-      <div className="fancy-separator"></div>
-      <div className="absolute">
-        <Sparkles className="h-6 w-6 text-brand-purple opacity-70" />
-      </div>
-    </div>
   );
 };
 
@@ -114,9 +100,6 @@ const StatsSection: React.FC = () => {
           </div>
         </div>
 
-        {/* Decorative separator instead of thin line */}
-        <DecorativeSeparator />
-
         {/* Second Stat Row: Text on left (text aligned right on large screens), image on right */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 lg:gap-12 mb-16 md:mb-24 items-center">
           {/* Text block on left for large screens, but appears first on mobile */}
@@ -146,9 +129,6 @@ const StatsSection: React.FC = () => {
             />
           </div>
         </div>
-
-        {/* Decorative separator instead of thin line */}
-        <DecorativeSeparator />
 
         {/* Third Stat Row: Text on right (large), image on left (large) */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 lg:gap-12 items-center">
