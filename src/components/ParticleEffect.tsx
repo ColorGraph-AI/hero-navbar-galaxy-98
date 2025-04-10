@@ -38,17 +38,21 @@ const ParticleEffect: React.FC = () => {
     
     function initParticles() {
       particles.current = [];
-      const numberOfParticles = Math.floor(window.innerWidth * window.innerHeight / 15000);
+      // Increase number of particles significantly
+      const numberOfParticles = Math.floor(window.innerWidth * window.innerHeight / 5000);
       
       for (let i = 0; i < numberOfParticles; i++) {
         particles.current.push({
           x: Math.random() * canvas.width,
           y: Math.random() * canvas.height,
-          size: Math.random() * 3 + 1,
-          speedX: (Math.random() - 0.5) * 0.5,
-          speedY: (Math.random() - 0.5) * 0.5,
+          // Increase particle size for better visibility
+          size: Math.random() * 5 + 2,
+          // Slightly faster movement
+          speedX: (Math.random() - 0.5) * 1.2,
+          speedY: (Math.random() - 0.5) * 1.2,
           color: colors[Math.floor(Math.random() * colors.length)],
-          opacity: Math.random() * 0.5 + 0.1
+          // Increase opacity for better visibility
+          opacity: Math.random() * 0.7 + 0.3
         });
       }
     }
@@ -61,6 +65,10 @@ const ParticleEffect: React.FC = () => {
         ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
         ctx.fillStyle = particle.color + Math.floor(particle.opacity * 255).toString(16).padStart(2, '0');
         ctx.fill();
+        
+        // Add a glow effect
+        ctx.shadowBlur = 15;
+        ctx.shadowColor = particle.color;
         
         // Update position
         particle.x += particle.speedX;
@@ -93,7 +101,7 @@ const ParticleEffect: React.FC = () => {
     <canvas 
       ref={canvasRef} 
       className="absolute inset-0 z-0 pointer-events-none" 
-      style={{ opacity: 0.6 }}
+      style={{ opacity: 1 }} // Increased from 0.6 to 1 for better visibility
     />
   );
 };

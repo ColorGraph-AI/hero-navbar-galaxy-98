@@ -21,14 +21,14 @@ const Hero: React.FC = () => {
         }}
       />
       
-      {/* Particle effect */}
+      {/* Particle effect - Moved above the gradient overlay for better visibility */}
       <ParticleEffect />
       
-      {/* Gradient overlay */}
+      {/* Gradient overlay with reduced opacity to let particles show through */}
       <div 
         className="absolute inset-0 z-1"
         style={{
-          background: "linear-gradient(135deg, rgba(166, 68, 179, 0.2) 0%, rgba(155, 135, 245, 0.2) 50%, rgba(255, 139, 213, 0.2) 100%), linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 11%, rgba(255,255,255,0.7) 59%, rgba(255,255,255,1) 100%)",
+          background: "linear-gradient(135deg, rgba(166, 68, 179, 0.15) 0%, rgba(155, 135, 245, 0.15) 50%, rgba(255, 139, 213, 0.15) 100%), linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0.2) 30%, rgba(255,255,255,0.6) 70%, rgba(255,255,255,0.9) 100%)",
         }}
       />
       
