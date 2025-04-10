@@ -25,7 +25,7 @@ const Features: React.FC = () => {
     {
       id: "centralized-hub",
       label: "Centralized Feedback Hub",
-      imageUrl: "/lovable-uploads/98a4b49a-c323-49c8-a163-745c68eb66ca.png",
+      imageUrl: "/lovable-uploads/983c12bd-6011-4fcb-bfeb-fb4c873a9787.png",
       description: "Collect and organize all client feedback in one place, making it easy to track, prioritize, and implement changes."
     },
     {
