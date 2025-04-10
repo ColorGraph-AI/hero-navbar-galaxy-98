@@ -29,7 +29,7 @@ const Hero: React.FC = () => {
         }}
       />
       
-      {/* Floating 3D elements */}
+      {/* Floating 3D elements - moved above to ensure they're visible */}
       <FloatingElements />
       
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
