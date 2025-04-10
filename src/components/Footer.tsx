@@ -43,19 +43,16 @@ const Footer: React.FC = () => {
   return (
     <footer className="bg-brand-purple text-white py-12 md:py-16">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
-          {/* Logo and tagline */}
-          <div className="col-span-1">
-            <Link to="/" className="inline-block mb-4">
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-8 mb-12">
+          {/* Logo */}
+          <div className="col-span-1 md:col-span-2 flex items-start">
+            <Link to="/" className="inline-block">
               <img
-                src="/lovable-uploads/0c7e8b65-6ec0-4186-a7dd-31d63520f707.png"
+                src="/lovable-uploads/e44d480c-d27c-41a2-bef4-0524e4e93606.png"
                 alt="ColorGraph.AI Logo"
-                className="h-10 w-auto brightness-0 invert"
+                className="h-12 w-auto brightness-0 invert"
               />
             </Link>
-            <p className="text-white/80 text-sm mt-4 max-w-xs">
-              Enhancing design feedback with AI-powered color analysis and insights.
-            </p>
           </div>
 
           {/* Footer links */}
