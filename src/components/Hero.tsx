@@ -75,7 +75,7 @@ const Hero: React.FC = () => {
                 clipRule="evenodd"
               />
             </svg>
-            Join 5000+ designers ready to revolutionize client collaboration with AI
+            Join 1000+ designers ready to revolutionize client collaboration with AI
           </p>
           
           {/* Trusted By Section */}
