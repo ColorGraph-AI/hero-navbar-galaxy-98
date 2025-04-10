@@ -28,13 +28,21 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay }}
       viewport={{ once: true }}
-      className="relative bg-white rounded-3xl p-8 shadow-sm border border-gray-50 overflow-hidden"
+      whileHover={{ 
+        y: -10,
+        boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
+        transition: { duration: 0.2 }
+      }}
+      className="relative bg-white rounded-3xl p-8 shadow-sm border border-gray-50 overflow-hidden transition-all duration-300 hover:border-purple-200 group"
     >
+      {/* Gradient background on hover */}
+      <div className="absolute inset-0 bg-gradient-to-br from-purple-50 to-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+      
       {/* Background blur effect for icon */}
       <div className="absolute inset-0 overflow-hidden">
         {isIconOnLeft ? (
           // Left-positioned background for cards 3 and 4
-          <div className="absolute right-0 top-0 opacity-20">
+          <div className="absolute right-0 top-0 opacity-20 group-hover:opacity-30 transition-opacity duration-300">
             <img
               src={iconSrc}
               alt=""
@@ -43,7 +51,7 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
           </div>
         ) : (
           // Right-positioned background for cards 0, 1, and 2
-          <div className="absolute right-0 top-0 opacity-20">
+          <div className="absolute right-0 top-0 opacity-20 group-hover:opacity-30 transition-opacity duration-300">
             <img
               src={iconSrc}
               alt=""
@@ -58,20 +66,26 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
         {isIconOnLeft ? (
           // Left-aligned layout (text on right) for cards 3 and 4
           <>
-            <h3 className="text-2xl font-alexandria font-bold mb-3">{title}</h3>
-            <p className="text-gray-600 font-opensans mb-4">{description}</p>
-            <div className="mt-auto">
+            <h3 className="text-2xl font-alexandria font-bold mb-3 relative">
+              {title}
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-purple-400 group-hover:w-1/3 transition-all duration-300"></span>
+            </h3>
+            <p className="text-gray-600 font-opensans mb-4 group-hover:text-gray-800 transition-colors duration-300">{description}</p>
+            <div className="mt-auto group-hover:scale-110 transition-transform duration-300 transform origin-bottom-left">
               <img src={iconSrc} alt={iconAlt} className="w-24 h-24 object-contain" />
             </div>
           </>
         ) : (
           // Right-aligned layout (text on left) for cards 0, 1, and 2
           <>
-            <div className="mb-8">
+            <div className="mb-8 group-hover:scale-110 transition-transform duration-300 transform origin-top-left">
               <img src={iconSrc} alt={iconAlt} className="w-24 h-24 object-contain" />
             </div>
-            <h3 className="text-2xl font-alexandria font-bold mb-3">{title}</h3>
-            <p className="text-gray-600 font-opensans">{description}</p>
+            <h3 className="text-2xl font-alexandria font-bold mb-3 relative">
+              {title}
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-purple-400 group-hover:w-1/3 transition-all duration-300"></span>
+            </h3>
+            <p className="text-gray-600 font-opensans group-hover:text-gray-800 transition-colors duration-300">{description}</p>
           </>
         )}
       </div>
@@ -131,6 +145,9 @@ const WhyColorGraph: React.FC = () => {
           <h2 className="text-4xl md:text-5xl font-alexandria font-bold mb-8">
             Why ColorGraph.AI?
           </h2>
+          
+          {/* Decorative elements */}
+          <div className="fancy-separator mx-auto mb-10"></div>
         </motion.div>
 
         {/* First row: 3 cards */}
