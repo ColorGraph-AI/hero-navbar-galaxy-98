@@ -6,17 +6,24 @@ import { useIsMobile } from "@/hooks/use-mobile";
 import { Separator } from "@/components/ui/separator";
 
 const StatCard: React.FC<{
-  description: string;
+  description?: string;
+  imageUrl?: string;
   className?: string;
-}> = ({ description, className }) => {
+}> = ({ description, imageUrl, className }) => {
   return (
     <Card className={`rounded-3xl p-6 bg-[#FDF5FF] border-none shadow-sm overflow-hidden ${className} animate-fade-in hover:shadow-md transition-shadow duration-300`}>
       <div className="flex flex-col h-full">
-        <p className="text-sm font-normal text-gray-700 font-opensans mb-4">
-          {description}
-        </p>
+        {description && (
+          <p className="text-sm font-normal text-gray-700 font-opensans mb-4">
+            {description}
+          </p>
+        )}
         <div className="mt-auto">
-          <Skeleton className="w-full h-40 rounded-xl" />
+          {imageUrl ? (
+            <img src={imageUrl} alt="Stat visualization" className="w-full h-auto rounded-xl" />
+          ) : (
+            <Skeleton className="w-full h-40 rounded-xl" />
+          )}
         </div>
       </div>
     </Card>
@@ -80,7 +87,7 @@ const StatsSection: React.FC = () => {
             style={{ animationDelay: "0.1s", transitionDuration: "0.8s" }}
           >
             <StatCard
-              description="Key Optimization Inbox vs. Organized AI Dashboard Concept: Show how ColorGraph.AI reduces excessive revisions. Image tiles: Before: A cluttered Inbox filled with scattered feedback emails. After: A clean, AI-powered interface that neatly organizes feedback into actionable tasks. Visual Cues: Contrast between chaos and structure, using UI-inspired elements."
+              imageUrl="/lovable-uploads/e8324e2f-1d89-470d-84ef-bffb6556d739.png"
             />
           </div>
         </div>
