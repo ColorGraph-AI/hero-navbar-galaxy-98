@@ -2,7 +2,6 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
 import { Card } from "@/components/ui/card";
 
 const WaitlistSection: React.FC = () => {
@@ -17,24 +16,23 @@ const WaitlistSection: React.FC = () => {
           className="rounded-3xl overflow-hidden"
         >
           <Card className="border-0 shadow-xl w-full" style={{
-            background: "linear-gradient(102.3deg, rgba(147,39,143,1) 5.9%, rgba(234,172,232,1) 64%, rgba(246,219,245,1) 89%)",
+            background: "linear-gradient(to right, #fff1ff 0%, #ffcef5 100%)",
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}>
             <div className="px-8 py-16 md:px-16 md:py-20 flex flex-col items-center text-center">
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-alexandria font-bold mb-6 text-white">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-alexandria font-bold mb-6 text-black">
                 Ready to Design with<br />Clarity and Confidence?
               </h2>
-              <p className="max-w-2xl mx-auto mb-10 text-white font-['Open_Sans']">
-                <span className="font-semibold block mb-1">Stop juggling endless feedback loops.</span>
+              <p className="max-w-2xl mx-auto mb-10 text-gray-800 font-['Open_Sans']">
+                Stop juggling endless feedback loops.<br />
                 ColorGraph.AI helps you save hours, reduce revisions, and keep your creative vision intact.
               </p>
               <Button 
-                className="bg-white hover:bg-white/90 text-brand-purple font-semibold px-6 py-2 h-auto text-base rounded-full cta-button"
+                className="bg-purple-600 hover:bg-purple-700 text-white font-semibold px-6 py-2 h-auto text-base rounded-full cta-button"
                 onClick={() => window.open('#', '_blank')}
               >
-                Join our waitlist
-                <ArrowRight className="ml-2 h-4 w-4" />
+                Join our waitlist !
               </Button>
             </div>
           </Card>
