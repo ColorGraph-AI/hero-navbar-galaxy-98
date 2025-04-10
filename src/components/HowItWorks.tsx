@@ -1,5 +1,5 @@
 
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
@@ -16,28 +16,28 @@ const HowItWorks: React.FC = () => {
       number: 2,
       title: "Send Design Versions",
       description: "Share your latest design directly through the platform.",
-      image: "/lovable-uploads/a9c16fd0-8fb2-4b50-a317-efd0e95b2dc9.png", // Updated to the new image
+      image: "/lovable-uploads/a9c16fd0-8fb2-4b50-a317-efd0e95b2dc9.png", 
       imageAlt: "Upload design interface",
     },
     {
       number: 3,
       title: "Await Client Response",
       description: "Wait for the AI refined and organized client feedback.",
-      image: "/lovable-uploads/ae012bef-3fcf-4b59-bc58-98af805286a1.png", // Updated to the new image
+      image: "/lovable-uploads/ae012bef-3fcf-4b59-bc58-98af805286a1.png", 
       imageAlt: "Refining client feedback interface",
     },
     {
       number: 4,
       title: "Get AI-optimized Feedback",
       description: "Receive feedback as clear, step-by-step revision tasks.",
-      image: "/lovable-uploads/c0cef244-125d-41f9-a1df-3959fddded86.png", // Updated to the new image
+      image: "/lovable-uploads/c0cef244-125d-41f9-a1df-3959fddded86.png", 
       imageAlt: "Feedback revision interface",
     },
     {
       number: 5,
       title: "Repeat Effortlessly",
       description: "Continue the process smoothly for each revision round.",
-      image: "/lovable-uploads/497a0dd7-cf5c-44c2-84ab-f404a9265651.png", // Updated to the new image
+      image: "/lovable-uploads/497a0dd7-cf5c-44c2-84ab-f404a9265651.png", 
       imageAlt: "Revision tracking interface",
     }
   ];
@@ -54,23 +54,36 @@ const HowItWorks: React.FC = () => {
       number: 2,
       title: "View Design Versions",
       description: "See the latest designs shared by your designer.",
-      image: "/lovable-uploads/a9c16fd0-8fb2-4b50-a317-efd0e95b2dc9.png", // Updated to the new image
+      image: "/lovable-uploads/a9c16fd0-8fb2-4b50-a317-efd0e95b2dc9.png", 
       imageAlt: "Design viewing interface",
     },
     {
       number: 3,
       title: "Provide Clear Feedback",
       description: "Our AI helps you structure your feedback clearly.",
-      image: "/lovable-uploads/ae012bef-3fcf-4b59-bc58-98af805286a1.png", // Updated to the new image
+      image: "/lovable-uploads/ae012bef-3fcf-4b59-bc58-98af805286a1.png", 
       imageAlt: "Providing feedback interface",
     }
   ];
 
   const [activeTab, setActiveTab] = useState("designers");
+  const [contentHeight, setContentHeight] = useState<number>(0);
+  const contentRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
+  
+  // Effect to update content height when active tab changes
+  useEffect(() => {
+    const activeContent = contentRefs.current[activeTab];
+    if (activeContent) {
+      setContentHeight(activeContent.offsetHeight + 10);
+    }
+  }, [activeTab]);
 
   const renderSteps = (steps: typeof designerSteps) => {
     return (
-      <div className="w-full">
+      <div 
+        ref={el => contentRefs.current[activeTab] = el}
+        className="w-full"
+      >
         {steps.map((step, index) => (
           <div 
             key={step.number} 
@@ -150,30 +163,50 @@ const HowItWorks: React.FC = () => {
             How ColorGraph.AI Works?
           </h2>
           
-          <div className="max-w-xs mx-auto">
-            <Tabs defaultValue="designers" onValueChange={setActiveTab} className="w-full">
-              <TabsList className="grid w-full grid-cols-2 bg-gray-100 rounded-full p-1">
-                <TabsTrigger 
-                  value="designers" 
-                  className="rounded-full font-opensans data-[state=active]:bg-white data-[state=active]:shadow-sm px-4 py-2"
+          <div className="max-w-xl mx-auto">
+            {/* Updated Tabs to match Features section style */}
+            <Tabs 
+              defaultValue="designers" 
+              value={activeTab}
+              onValueChange={setActiveTab}
+              className="w-full mx-auto"
+            >
+              <TabsList className="w-full h-auto p-1 bg-[#FCF1FF] rounded-full mb-10 flex justify-between">
+                <TabsTrigger
+                  value="designers"
+                  className="relative flex-1 py-3 px-2 rounded-full transition-all duration-300 text-center font-opensans font-semibold"
                 >
-                  For Designers
+                  <span className="relative z-10 text-black">For Designers</span>
+                  {activeTab === "designers" && (
+                    <motion.div
+                      layoutId="activeTabHowItWorks"
+                      className="absolute inset-0 bg-white rounded-full z-0"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ duration: 0.3 }}
+                    />
+                  )}
                 </TabsTrigger>
-                <TabsTrigger 
-                  value="clients" 
-                  className="rounded-full font-opensans data-[state=active]:bg-white data-[state=active]:shadow-sm px-4 py-2"
+                <TabsTrigger
+                  value="clients"
+                  className="relative flex-1 py-3 px-2 rounded-full transition-all duration-300 text-center font-opensans font-semibold"
                 >
-                  For Clients
+                  <span className="relative z-10 text-black">For Clients</span>
+                  {activeTab === "clients" && (
+                    <motion.div
+                      layoutId="activeTabHowItWorks"
+                      className="absolute inset-0 bg-white rounded-full z-0"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ duration: 0.3 }}
+                    />
+                  )}
                 </TabsTrigger>
               </TabsList>
-            
-              {/* TabsContent needs to be inside the Tabs component */}
-              <TabsContent value="designers" className="mt-0">
-                {/* This empty div is needed for TabsContent to work correctly */}
-              </TabsContent>
-              <TabsContent value="clients" className="mt-0">
-                {/* This empty div is needed for TabsContent to work correctly */}
-              </TabsContent>
+              
+              {/* Empty TabsContent to maintain structure */}
+              <TabsContent value="designers" className="mt-0" />
+              <TabsContent value="clients" className="mt-0" />
             </Tabs>
           </div>
         </motion.div>
