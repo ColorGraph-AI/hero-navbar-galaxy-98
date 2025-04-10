@@ -9,6 +9,7 @@ import WhyColorGraph from "@/components/WhyColorGraph";
 import HowItWorks from "@/components/HowItWorks";
 import Testimonials from "@/components/Testimonials";
 import FAQSection from "@/components/FAQ";
+import WaitlistSection from "@/components/WaitlistSection";
 
 const Index: React.FC = () => {
   return (
@@ -22,6 +23,7 @@ const Index: React.FC = () => {
       <HowItWorks />
       <Testimonials />
       <FAQSection />
+      <WaitlistSection />
     </div>
   );
 };
