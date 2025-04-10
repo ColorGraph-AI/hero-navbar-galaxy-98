@@ -48,7 +48,7 @@ const Footer: React.FC = () => {
           <div className="col-span-1 md:col-span-2 flex items-start">
             <Link to="/" className="inline-block">
               <img
-                src="/lovable-uploads/e44d480c-d27c-41a2-bef4-0524e4e93606.png"
+                src="/lovable-uploads/2fc1da71-3a6e-4aee-9251-f3bd607cba54.png"
                 alt="ColorGraph.AI Logo"
                 className="h-12 w-auto brightness-0 invert"
               />
