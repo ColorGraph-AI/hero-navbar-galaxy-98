@@ -31,7 +31,7 @@ const Features: React.FC = () => {
     {
       id: "seamless-integration",
       label: "Seamless Integration",
-      imageUrl: "/lovable-uploads/98a4b49a-c323-49c8-a163-745c68eb66ca.png",
+      imageUrl: "/lovable-uploads/f34fc2a5-27b1-4f00-baa5-bb180f130b08.png",
       description: "Connects with your existing design and project management tools for a smooth, uninterrupted workflow."
     }
   ];
