@@ -13,7 +13,6 @@ import WaitlistSection from "@/components/WaitlistSection";
 import Footer from "@/components/Footer";
 import WaitlistModal from "@/components/WaitlistModal";
 import { WaitlistProvider, useWaitlist } from "@/contexts/WaitlistContext";
-import { Toaster } from "sonner";
 
 // Wrapped component that has access to the waitlist context
 const IndexContent: React.FC = () => {
@@ -36,7 +35,6 @@ const IndexContent: React.FC = () => {
         open={isWaitlistModalOpen} 
         onOpenChange={setWaitlistModalOpen} 
       />
-      <Toaster position="top-right" />
     </div>
   );
 };
