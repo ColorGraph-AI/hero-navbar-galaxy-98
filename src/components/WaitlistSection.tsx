@@ -29,7 +29,7 @@ const WaitlistSection: React.FC = () => {
                 ColorGraph.AI helps you save hours, reduce revisions, and keep your creative vision intact.
               </p>
               <Button 
-                className="bg-[#AF56BA] hover:bg-[#AF56BA]/90 text-white font-semibold px-6 py-2 h-auto text-base rounded-full cta-button"
+                className="cta-button font-alexandria font-semibold bg-brand-purple hover:bg-brand-purple/90 text-white px-6 py-2 rounded-full"
                 onClick={() => window.open('#', '_blank')}
               >
                 Join our waitlist !
