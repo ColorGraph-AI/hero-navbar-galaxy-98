@@ -9,6 +9,7 @@ import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
+import { supabase } from "@/integrations/supabase/client";
 
 // Define the form schema with Zod
 const formSchema = z.object({
@@ -50,21 +51,39 @@ const WaitlistModal: React.FC<WaitlistModalProps> = ({ open, onOpenChange }) => 
     setIsSubmitting(true);
     
     try {
-      // In a real application, you would send this data to your backend
-      console.log("Form submitted:", data);
+      // Insert the submission into Supabase
+      const { error } = await supabase
+        .from('waitlist_users')
+        .insert([
+          { 
+            email: data.email,
+            role: data.role
+          }
+        ]);
       
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
-      // Show success notification
-      toast.success("You've been added to our waitlist!", {
-        description: "We'll notify you when ColorGraph.AI launches.",
-      });
-      
-      // Reset the form and close the modal
-      form.reset();
-      onOpenChange(false);
+      if (error) {
+        console.error("Supabase error:", error);
+        
+        // Handle duplicate email error specifically
+        if (error.code === '23505') {
+          toast.error("You're already on our waitlist!", {
+            description: "This email has already been registered.",
+          });
+        } else {
+          throw error;
+        }
+      } else {
+        // Show success notification
+        toast.success("You've been added to our waitlist!", {
+          description: "We'll notify you when ColorGraph.AI launches.",
+        });
+        
+        // Reset the form and close the modal
+        form.reset();
+        onOpenChange(false);
+      }
     } catch (error) {
+      console.error("Form submission error:", error);
       toast.error("Something went wrong", {
         description: "Please try again later.",
       });
