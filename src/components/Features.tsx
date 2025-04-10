@@ -19,7 +19,7 @@ const Features: React.FC = () => {
     {
       id: "ai-analysis",
       label: "AI-Powered Feedback Analysis",
-      imageUrl: "/lovable-uploads/98a4b49a-c323-49c8-a163-745c68eb66ca.png",
+      imageUrl: "/lovable-uploads/7437029e-b5f5-4088-939c-1ddc748fd1dc.png",
       description: "Our AI analyzes feedback from multiple sources, identifying patterns and extracting actionable insights that might otherwise be missed."
     },
     {
