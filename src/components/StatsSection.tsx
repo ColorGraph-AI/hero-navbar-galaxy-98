@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef } from "react";
 import { Card } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -151,10 +150,7 @@ const StatsSection: React.FC = () => {
             style={{ animationDelay: "0.9s", transitionDuration: "0.8s" }}
           >
             <StatCard
-              description="Revised Concept for 80% Fewer Feedback Loops
-'Complex Version History vs. Streamlined Approval Flow'
-• Before: A chaotic branching history timeline — a visualization of the same design with scattered feedback comments across different versions.
-• After: A clean, AI-powered approval flow—a single, structured version history where feedback is merged effectively, leading to fewer total revisions."
+              imageUrl="/lovable-uploads/91ee6949-5171-4f57-8fbe-05f22f5d79f3.png"
             />
           </div>
         </div>
