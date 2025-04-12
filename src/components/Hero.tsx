@@ -56,15 +56,15 @@ const Hero: React.FC = () => {
         <FloatingElement
           src="/lovable-uploads/pink_donut1.png"
           alt="Pink Donut"
-          className="top-[35%] right-[90%] w-15 md:w-20 lg:w-28"
+          className="top-[35%] right-[80%] w-15 md:w-20 lg:w-28"
           animationClass="animate-float-slow"
         />
         
-        {/* Pink Donut Top Right */}
+        {/* Purple tube */}
         <FloatingElement
           src="/lovable-uploads/d80387b7-a1dd-4ced-8cdf-b500ccec64a0.png"
-          alt="Pink Donut"
-          className="top-[5%] left-[10%] w-24 md:w-28 lg:w-32"
+          alt="Purple tube"
+          className="top-[45%] right-[0%] w-15 md:w-15 lg:w-20"
           animationClass="animate-float"
         />
         
