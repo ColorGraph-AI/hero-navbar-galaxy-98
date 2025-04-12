@@ -76,7 +76,7 @@ const Hero: React.FC = () => {
           src="/lovable-uploads/pink_donut1.png"
           alt="Pink Donut"
           width={120}
-          top="35%"
+          top="30%"
           right="80%"
           animationClass="animate-float-slow"
         />
