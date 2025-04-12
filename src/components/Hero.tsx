@@ -72,7 +72,7 @@ const Hero: React.FC = () => {
         <FloatingElement
           src="/lovable-uploads/d80387b7-a1dd-4ced-8cdf-b500ccec64a0.png"
           alt="Purple tube"
-          className="top-[50%] left-[0%] w-15 md:w-15 lg:w-20 rotate-90"
+          className="top-[50%] left-[0%] w-15 md:w-15 lg:w-20 rotate-45"
           animationClass="animate-float"
         />
         
