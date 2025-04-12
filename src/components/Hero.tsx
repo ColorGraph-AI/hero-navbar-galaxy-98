@@ -96,7 +96,7 @@ const Hero: React.FC = () => {
           width={80}
           top="50%"
           left="0%"
-          rotation={150}
+          rotation={160}
           animationClass="animate-float"
         />
         
