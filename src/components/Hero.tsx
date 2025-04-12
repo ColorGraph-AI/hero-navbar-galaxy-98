@@ -89,7 +89,7 @@ const Hero: React.FC = () => {
         <FloatingElement
           src="/lovable-uploads/pink_spiral.png"
           alt="Pink Donut Big"
-          className="bottom-[35%] right-[30%] w-16 md:w-20 lg:w-24 rotate-15"
+          className="bottom-[35%] right-[20%] w-16 md:w-20 lg:w-24 rotate-45"
           animationClass="animate-float"
         />
         
