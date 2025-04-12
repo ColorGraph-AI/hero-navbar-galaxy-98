@@ -63,15 +63,27 @@ const Hero: React.FC = () => {
   
   return (
     <div className="relative pt-20 overflow-hidden">
+      {/* Background image */}
       <div 
         className="absolute inset-0 z-0"
         style={{
-          background: "linear-gradient(135deg, #fff8ff 0%, #ffebff 50%, #fff5ff 100%)"
+          backgroundImage: "url('/lovable-uploads/gradient_background_1.png')",
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          opacity: 0.9
         }}
       />
       
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {/* Convert all elements to use the new positioning props */}
+      {/* Fade overlay - from transparent at top to solid at bottom */}
+      <div 
+        className="absolute inset-0 z-1"
+        style={{
+          background: "linear-gradient(to bottom, rgba(255,235,255,0) 0%, rgba(255,245,255,0.85) 70%, rgba(255,250,255,1) 100%)"
+        }}
+      />
+      
+      <div className="absolute inset-0 overflow-hidden pointer-events-none z-2">
+        {/* Keeping all your modified floating elements as is */}
         <FloatingElement
           src="/lovable-uploads/pink_donut1.png"
           alt="Pink Donut"
