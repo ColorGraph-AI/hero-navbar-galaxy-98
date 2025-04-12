@@ -68,15 +68,8 @@ const Hero: React.FC = () => {
           animationClass="animate-float"
         />
         
-        {/* Purple Star */}
-        <FloatingElement
-          src="/lovable-uploads/44064c5f-0a3e-4d66-b4cc-46967f7c606e.png"
-          alt="Purple Star"
-          className="bottom-[25%] right-[25%] w-16 md:w-20 lg:w-24"
-          animationClass="animate-float-fast"
-        />
         
-        {/* Purple Tube */}
+        {/* Small pink sphere */}
         <FloatingElement
           src="/lovable-uploads/570f62fb-b986-46fc-a060-0601c464a73a.png"
           alt="Purple Tube"
