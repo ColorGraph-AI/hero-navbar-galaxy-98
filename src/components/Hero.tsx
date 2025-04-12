@@ -12,7 +12,7 @@ interface FloatingElementProps {
   height?: number;
   style?: React.CSSProperties;
   zIndex?: number;
-  rotation?: number;
+  rotation?: number; // New prop specifically for rotation
   top?: string;
   left?: string;
   right?: string;
@@ -28,7 +28,7 @@ const FloatingElement: React.FC<FloatingElementProps> = ({
   height = 80,
   style = {},
   zIndex = 10,
-  rotation = 0,
+  rotation = 0, // Default to no rotation
   top,
   left,
   right,
@@ -64,48 +64,40 @@ const Hero: React.FC = () => {
   return (
     <div className="relative pt-20 overflow-hidden">
       <div 
-        className="absolute inset-0 z-0"
+        className="absolute inset-0 z-0 bg-gradient-to-b from-pink-50 to-pink-100"
         style={{
           background: "linear-gradient(135deg, #fff8ff 0%, #ffebff 50%, #fff5ff 100%)"
         }}
       />
       
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {/* Pink Donut Left */}
+        {/* Original elements with their original properties */}
         <FloatingElement
           src="/lovable-uploads/pink_donut1.png"
           alt="Pink Donut"
-          width={96}
-          top="35%"
-          left="10%"
+          className="top-[35%] right-[80%] w-15 md:w-20 lg:w-28"
           animationClass="animate-float-slow"
-          zIndex={5}
         />
         
-        {/* Purple Donut Right */}
         <FloatingElement
           src="/lovable-uploads/d80387b7-a1dd-4ced-8cdf-b500ccec64a0.png"
-          alt="Purple Donut"
-          width={80}
-          top="30%"
-          right="5%"
+          alt="Purple tube"
+          className="top-[30%] right-[0%] w-15 md:w-15 lg:w-20"
           animationClass="animate-float"
-          zIndex={5}
         />
-        
-        {/* Purple Tube Left with Rotation */}
+
+        {/* Element with rotation fixed using the proper approach */}
         <FloatingElement
           src="/lovable-uploads/d80387b7-a1dd-4ced-8cdf-b500ccec64a0.png"
-          alt="Purple Tube"
+          alt="Purple tube"
           width={80}
           top="50%"
           left="0%"
           rotation={85}
           animationClass="animate-float"
-          zIndex={3}
         />
         
-        {/* Pink Donut Top Right */}
+        {/* Elements that need rotation fixed */}
         <FloatingElement
           src="/lovable-uploads/pink_donut2.png"
           alt="Pink Donut Big"
@@ -114,10 +106,8 @@ const Hero: React.FC = () => {
           right="15%"
           rotation={15}
           animationClass="animate-float"
-          zIndex={4}
         />
-        
-        {/* Pink Spiral Bottom Right */}
+
         <FloatingElement
           src="/lovable-uploads/pink_spiral.png"
           alt="Pink Spiral"
@@ -126,41 +116,14 @@ const Hero: React.FC = () => {
           right="15%"
           rotation={85}
           animationClass="animate-float"
-          zIndex={6}
         />
         
-        {/* Blue Tube Bottom Left */}
+        {/* Original element without changes */}
         <FloatingElement
           src="/lovable-uploads/570f62fb-b986-46fc-a060-0601c464a73a.png"
           alt="Blue Tube"
-          width={64}
-          bottom="30%"
-          left="20%"
+          className="bottom-[30%] right-[70%] w-10 md:w-10 lg:w-10"
           animationClass="animate-float-slow"
-          style={{ filter: "hue-rotate(240deg)" }}
-          zIndex={4}
-        />
-        
-        {/* Purple Star */}
-        <FloatingElement
-          src="/lovable-uploads/44064c5f-0a3e-4d66-b4cc-46967f7c606e.png"
-          alt="Purple Star"
-          width={72}
-          bottom="15%"
-          right="30%"
-          animationClass="animate-float-fast"
-          zIndex={5}
-        />
-        
-        {/* Pink Sphere */}
-        <FloatingElement
-          src="/lovable-uploads/6d0959d7-3bfa-4014-8a54-af9ee95f1b7c.png"
-          alt="Pink Sphere"
-          width={100}
-          bottom="12%"
-          left="30%"
-          animationClass="animate-float"
-          zIndex={3}
         />
       </div>
       
