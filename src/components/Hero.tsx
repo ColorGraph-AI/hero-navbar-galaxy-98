@@ -1,36 +1,105 @@
-
 import React from "react";
 import { Button } from "@/components/ui/button";
 import TrustedBy from "./TrustedBy";
 import { useWaitlist } from "@/contexts/WaitlistContext";
-import ParticleEffect from "./ParticleEffect";
+
+// Define the FloatingElement component within the file
+interface FloatingElementProps {
+  src: string;
+  alt: string;
+  className?: string;
+  animationClass?: string;
+  width?: number;
+  height?: number;
+  style?: React.CSSProperties;
+  zIndex?: number;
+}
+
+const FloatingElement: React.FC<FloatingElementProps> = ({
+  src,
+  alt,
+  className = "",
+  animationClass = "animate-float",
+  width = 80,
+  height = 80,
+  style = {},
+  zIndex = 10,
+}) => {
+  return (
+    <img
+      src={src}
+      alt={alt}
+      width={width}
+      height={height}
+      className={`floating-element absolute ${animationClass} ${className}`}
+      style={{ ...style, zIndex }}
+    />
+  );
+};
 
 const Hero: React.FC = () => {
   const { openWaitlistModal } = useWaitlist();
   
   return (
     <div className="relative pt-20 overflow-hidden">
-      {/* Background image */}
+      {/* Gradient background */}
       <div 
-        className="absolute inset-0 z-0"
+        className="absolute inset-0 z-0 bg-gradient-to-b from-pink-50 to-pink-100"
         style={{
-          backgroundImage: "url('/lovable-uploads/feb7e9a3-db12-4c56-80d0-e86589735710.png')",
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          opacity: 0.9
+          background: "linear-gradient(135deg, #fff8ff 0%, #ffebff 50%, #fff5ff 100%)"
         }}
       />
       
-      {/* Particle effect - Moved above the gradient overlay for better visibility */}
-      <ParticleEffect />
-      
-      {/* Gradient overlay with reduced opacity to let particles show through */}
-      <div 
-        className="absolute inset-0 z-1"
-        style={{
-          background: "linear-gradient(to bottom, rgba(255,235,255,0.3) 0%, rgba(255,245,255,0.6) 50%, rgba(255,255,255,0.9) 100%)",
-        }}
-      />
+      {/* Floating Elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {/* Pink Donut Top Right */}
+        <FloatingElement
+          src="/lovable-uploads/00310d1f-5e85-405a-9e0d-cdaccd3706e5.png"
+          alt="Pink Donut"
+          className="top-[15%] right-[8%] w-20 md:w-24 lg:w-28"
+          animationClass="animate-float-slow"
+        />
+        
+        {/* Pink Donut Top Left */}
+        <FloatingElement
+          src="/lovable-uploads/d80387b7-a1dd-4ced-8cdf-b500ccec64a0.png"
+          alt="Pink Donut"
+          className="top-[20%] left-[10%] w-24 md:w-28 lg:w-32"
+          animationClass="animate-float"
+        />
+        
+        {/* Purple Star */}
+        <FloatingElement
+          src="/lovable-uploads/44064c5f-0a3e-4d66-b4cc-46967f7c606e.png"
+          alt="Purple Star"
+          className="bottom-[25%] right-[25%] w-16 md:w-20 lg:w-24"
+          animationClass="animate-float-fast"
+        />
+        
+        {/* Purple Tube */}
+        <FloatingElement
+          src="/lovable-uploads/570f62fb-b986-46fc-a060-0601c464a73a.png"
+          alt="Purple Tube"
+          className="bottom-[20%] left-[15%] w-20 md:w-24 lg:w-28 -rotate-15"
+          animationClass="animate-float-slow"
+        />
+        
+        {/* Pink Spiral/Tube */}
+        <FloatingElement
+          src="/lovable-uploads/b1e00d8c-7fb7-4369-8fae-6623f63134b2.png"
+          alt="Pink Spiral"
+          className="top-[30%] right-[30%] w-16 md:w-20 lg:w-24 rotate-15"
+          animationClass="animate-float"
+        />
+        
+        {/* Blue Tube */}
+        <FloatingElement
+          src="/lovable-uploads/570f62fb-b986-46fc-a060-0601c464a73a.png"
+          alt="Blue Tube"
+          className="bottom-[40%] right-[5%] w-20 md:w-24 lg:w-28 rotate-45"
+          animationClass="animate-float-slow"
+        />
+      </div>
       
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="flex flex-col items-center justify-center min-h-[85vh] text-center py-16 md:py-24">

@@ -250,3 +250,57 @@
   height: 100%;
   pointer-events: none;
 }
+
+/* Add these to your src/index.css file */
+
+@keyframes float {
+  0%, 100% { 
+    transform: translateY(0px) rotate(0deg);
+  }
+  25% { 
+    transform: translateY(-10px) rotate(2deg);
+  }
+  75% { 
+    transform: translateY(10px) rotate(-2deg);
+  }
+}
+
+@keyframes floatSlow {
+  0%, 100% { 
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% { 
+    transform: translateY(-15px) rotate(3deg);
+  }
+}
+
+@keyframes floatFast {
+  0%, 100% { 
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% { 
+    transform: translateY(10px) rotate(-3deg);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-float-slow {
+  animation: floatSlow 8s ease-in-out infinite;
+}
+
+.animate-float-fast {
+  animation: floatFast 4s ease-in-out infinite;
+}
+
+.floating-element {
+  will-change: transform;
+  transition: transform 0.5s ease;
+  filter: drop-shadow(0px 10px 15px rgba(166, 68, 179, 0.15));
+}
+
+.floating-element:hover {
+  transform: scale(1.05) rotate(5deg);
+}
