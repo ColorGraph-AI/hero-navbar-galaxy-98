@@ -67,7 +67,7 @@ const Hero: React.FC = () => {
       <div 
         className="absolute inset-0 z-0"
         style={{
-          backgroundImage: "url('/lovable-uploads/gradient_background_1.png'),
+          backgroundImage: "url('/lovable-uploads/gradient_background_1.png')"",
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           opacity: 0.8
