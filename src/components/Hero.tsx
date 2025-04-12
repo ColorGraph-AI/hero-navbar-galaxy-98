@@ -14,10 +14,10 @@ const Hero: React.FC = () => {
       <div 
         className="absolute inset-0 z-0"
         style={{
-          backgroundImage: "url('/lovable-uploads/79329c76-5f48-408d-ac73-874ac7214c60.png')",
+          backgroundImage: "url('/lovable-uploads/feb7e9a3-db12-4c56-80d0-e86589735710.png')",
           backgroundSize: 'cover',
           backgroundPosition: 'center',
-          opacity: 0.8
+          opacity: 0.9
         }}
       />
       
@@ -28,7 +28,7 @@ const Hero: React.FC = () => {
       <div 
         className="absolute inset-0 z-1"
         style={{
-          background: "linear-gradient(135deg, rgba(166, 68, 179, 0.15) 0%, rgba(155, 135, 245, 0.15) 50%, rgba(255, 139, 213, 0.15) 100%), linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0.2) 30%, rgba(255,255,255,0.6) 70%, rgba(255,255,255,0.9) 100%)",
+          background: "linear-gradient(to bottom, rgba(255,235,255,0.3) 0%, rgba(255,245,255,0.6) 50%, rgba(255,255,255,0.9) 100%)",
         }}
       />
       
