@@ -12,7 +12,7 @@ interface FloatingElementProps {
   height?: number;
   style?: React.CSSProperties;
   zIndex?: number;
-  rotation?: number; // New prop specifically for rotation
+  rotation?: number;
   top?: string;
   left?: string;
   right?: string;
@@ -28,7 +28,7 @@ const FloatingElement: React.FC<FloatingElementProps> = ({
   height = 80,
   style = {},
   zIndex = 10,
-  rotation = 0, // Default to no rotation
+  rotation = 0,
   top,
   left,
   right,
@@ -63,28 +63,19 @@ const Hero: React.FC = () => {
   
   return (
     <div className="relative pt-20 overflow-hidden bg-[#FFF5FF]">
-      {/* Add background image with inline style */}
+      {/* Background image */}
       <div 
-        className="absolute inset-0"
+        className="absolute inset-0 z-0"
         style={{
-          backgroundImage: "url('/lovable-uploads/gradient_background_1.png')", /* Using Imgur as a fallback */
+          backgroundImage: "url('https://i.imgur.com/q2icQS5.png')",
           backgroundSize: 'cover',
-          backgroundPosition: 'center center',
-          mixBlendMode: 'multiply'
+          backgroundPosition: 'center',
+          opacity: 0.8
         }}
       ></div>
       
-      {/* Add gradient overlay */}
-      <div 
-        className="absolute inset-0"
-        style={{
-          background: "linear-gradient(to bottom, rgba(255,245,255,0.2) 0%, rgba(255,245,255,0.8) 80%, rgba(255,245,255,1) 100%)",
-          pointerEvents: "none"
-        }}
-      ></div>
-      
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {/* Keeping all your modified floating elements as is */}
+      {/* Floating elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none z-10">
         <FloatingElement
           src="/lovable-uploads/pink_donut1.png"
           alt="Pink Donut"
@@ -143,7 +134,16 @@ const Hero: React.FC = () => {
         />
       </div>
       
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      {/* Gradient overlay ON TOP of floating elements */}
+      <div 
+        className="absolute inset-0 z-20 pointer-events-none"
+        style={{
+          background: "linear-gradient(to bottom, rgba(255,245,255,0) 0%, rgba(255,245,255,0.7) 70%, rgba(255,245,255,0.95) 100%)"
+        }}
+      ></div>
+      
+      {/* Content */}
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-30">
         <div className="flex flex-col items-center justify-center min-h-[85vh] text-center py-16 md:py-24">
           <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-alexandria font-bold tracking-tight text-black max-w-4xl animate-fade-in" style={{ animationDelay: '0.3s' }}>
             <span className="block">Faster Feedback,</span>
