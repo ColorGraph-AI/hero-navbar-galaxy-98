@@ -62,27 +62,28 @@ const Hero: React.FC = () => {
   const { openWaitlistModal } = useWaitlist();
   
   return (
-    <div className="relative pt-20 overflow-hidden">
-      {/* Background image */}
+    <div className="relative pt-20 overflow-hidden bg-[#FFF5FF]">
+      {/* Add background image with inline style */}
       <div 
-        className="absolute inset-0 z-0"
+        className="absolute inset-0"
         style={{
-          backgroundImage: "url('/lovable-uploads/gradient_background_1.png')",
+          backgroundImage: "url('https://i.imgur.com/q2icQS5.png')", /* Using Imgur as a fallback */
           backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          opacity: 0.9
+          backgroundPosition: 'center center',
+          mixBlendMode: 'multiply'
         }}
-      />
+      ></div>
       
-      {/* Fade overlay - from transparent at top to solid at bottom */}
+      {/* Add gradient overlay */}
       <div 
-        className="absolute inset-0 z-1"
+        className="absolute inset-0"
         style={{
-          background: "linear-gradient(to bottom, rgba(255,235,255,0) 0%, rgba(255,245,255,0.85) 70%, rgba(255,250,255,1) 100%)"
+          background: "linear-gradient(to bottom, rgba(255,245,255,0.2) 0%, rgba(255,245,255,0.8) 80%, rgba(255,245,255,1) 100%)",
+          pointerEvents: "none"
         }}
-      />
+      ></div>
       
-      <div className="absolute inset-0 overflow-hidden pointer-events-none z-2">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {/* Keeping all your modified floating elements as is */}
         <FloatingElement
           src="/lovable-uploads/pink_donut1.png"
