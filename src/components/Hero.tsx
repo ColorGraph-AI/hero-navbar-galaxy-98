@@ -54,9 +54,9 @@ const Hero: React.FC = () => {
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {/* Pink Donut Middle Left */}
         <FloatingElement
-          src="/lovable-uploads/00310d1f-5e85-405a-9e0d-cdaccd3706e5.png"
+          src="/lovable-uploads/pink_donut1.png"
           alt="Pink Donut"
-          className="top-[50%] right-[80%] w-20 md:w-24 lg:w-28"
+          className="top-[35%] right-[90%] w-15 md:w-20 lg:w-28"
           animationClass="animate-float-slow"
         />
         
