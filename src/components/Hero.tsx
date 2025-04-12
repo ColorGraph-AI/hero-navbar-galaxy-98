@@ -64,29 +64,32 @@ const Hero: React.FC = () => {
   return (
     <div className="relative pt-20 overflow-hidden">
       <div 
-        className="absolute inset-0 z-0 bg-gradient-to-b from-pink-50 to-pink-100"
+        className="absolute inset-0 z-0"
         style={{
           background: "linear-gradient(135deg, #fff8ff 0%, #ffebff 50%, #fff5ff 100%)"
         }}
       />
       
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {/* Original elements with their original properties */}
+        {/* Convert all elements to use the new positioning props */}
         <FloatingElement
           src="/lovable-uploads/pink_donut1.png"
           alt="Pink Donut"
-          className="top-[35%] right-[80%] w-15 md:w-20 lg:w-28"
+          width={80}
+          top="35%"
+          right="80%"
           animationClass="animate-float-slow"
         />
         
         <FloatingElement
           src="/lovable-uploads/d80387b7-a1dd-4ced-8cdf-b500ccec64a0.png"
           alt="Purple tube"
-          className="top-[30%] right-[0%] w-15 md:w-15 lg:w-20"
+          width={80}
+          top="30%"
+          right="0%"
           animationClass="animate-float"
         />
 
-        {/* Element with rotation fixed using the proper approach */}
         <FloatingElement
           src="/lovable-uploads/d80387b7-a1dd-4ced-8cdf-b500ccec64a0.png"
           alt="Purple tube"
@@ -97,7 +100,6 @@ const Hero: React.FC = () => {
           animationClass="animate-float"
         />
         
-        {/* Elements that need rotation fixed */}
         <FloatingElement
           src="/lovable-uploads/pink_donut2.png"
           alt="Pink Donut Big"
@@ -118,11 +120,12 @@ const Hero: React.FC = () => {
           animationClass="animate-float"
         />
         
-        {/* Original element without changes */}
         <FloatingElement
           src="/lovable-uploads/570f62fb-b986-46fc-a060-0601c464a73a.png"
           alt="Blue Tube"
-          className="bottom-[30%] right-[70%] w-10 md:w-10 lg:w-10"
+          width={40}
+          bottom="30%"
+          right="70%"
           animationClass="animate-float-slow"
         />
       </div>
