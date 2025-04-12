@@ -67,7 +67,7 @@ const Hero: React.FC = () => {
       <div 
         className="absolute inset-0"
         style={{
-          backgroundImage: "url('https://i.imgur.com/q2icQS5.png')", /* Using Imgur as a fallback */
+          backgroundImage: "url('/lovable-uploads/gradient_background_1.png')", /* Using Imgur as a fallback */
           backgroundSize: 'cover',
           backgroundPosition: 'center center',
           mixBlendMode: 'multiply'
