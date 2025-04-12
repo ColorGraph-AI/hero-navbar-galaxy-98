@@ -134,11 +134,11 @@ const Hero: React.FC = () => {
         />
       </div>
       
-      {/* Gradient overlay ON TOP of floating elements with stronger top opacity */}
+      {/* Gradient overlay ON TOP of floating elements */}
       <div 
         className="absolute inset-0 z-20 pointer-events-none"
         style={{
-          background: "linear-gradient(to bottom, rgba(255,245,255,0.35) 0%, rgba(255,245,255,0.7) 70%, rgba(255,245,255,0.95) 100%)"
+          background: "linear-gradient(to bottom, rgba(255,245,255,0) 0%, rgba(255,245,255,0.7) 70%, rgba(255,245,255,0.95) 100%)"
         }}
       ></div>
       
