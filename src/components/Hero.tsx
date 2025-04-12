@@ -69,19 +69,11 @@ const Hero: React.FC = () => {
         />
         
         
-        {/* Small pink sphere */}
-        <FloatingElement
-          src="/lovable-uploads/570f62fb-b986-46fc-a060-0601c464a73a.png"
-          alt="Purple Tube"
-          className="bottom-[20%] left-[50%] w-20 md:w-24 lg:w-28 -rotate-15"
-          animationClass="animate-float-slow"
-        />
-        
-        {/* Pink Spiral/Tube */}
+        {/* Pink donut big */}
         <FloatingElement
           src="/lovable-uploads/b1e00d8c-7fb7-4369-8fae-6623f63134b2.png"
-          alt="Pink Spiral"
-          className="top-[70%] right-[30%] w-16 md:w-20 lg:w-24 rotate-15"
+          alt="Pink Donut Big"
+          className="top-[0%] right-[30%] w-16 md:w-20 lg:w-24 rotate-15"
           animationClass="animate-float"
         />
         
