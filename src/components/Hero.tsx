@@ -67,13 +67,29 @@ const Hero: React.FC = () => {
           className="top-[30%] right-[0%] w-15 md:w-15 lg:w-20"
           animationClass="animate-float"
         />
+
+        {/* Purple tube left */}
+        <FloatingElement
+          src="/lovable-uploads/d80387b7-a1dd-4ced-8cdf-b500ccec64a0.png"
+          alt="Purple tube"
+          className="top-[50%] left-[0%] w-15 md:w-15 lg:w-20 rotate-90"
+          animationClass="animate-float"
+        />
         
         
         {/* Pink donut big */}
         <FloatingElement
-          src="/lovable-uploads/b1e00d8c-7fb7-4369-8fae-6623f63134b2.png"
+          src="/lovable-uploads/pink_donut2.png"
           alt="Pink Donut Big"
           className="top-[10%] right-[15%] w-16 md:w-22 lg:w-24 rotate-15"
+          animationClass="animate-float"
+        />
+
+        {/* Pink spiral*/}
+        <FloatingElement
+          src="/lovable-uploads/pink_spiral.png"
+          alt="Pink Donut Big"
+          className="bottom-[35%] right-[30%] w-16 md:w-20 lg:w-24 rotate-15"
           animationClass="animate-float"
         />
         
