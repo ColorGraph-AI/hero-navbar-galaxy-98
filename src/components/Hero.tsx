@@ -1,3 +1,4 @@
+
 import React from "react";
 import { Button } from "@/components/ui/button";
 import TrustedBy from "./TrustedBy";
@@ -74,7 +75,7 @@ const Hero: React.FC = () => {
           alt="Purple tube"
           className="top-[50%] left-[0%] w-16 md:w-16 lg:w-20"
           animationClass="animate-float"
-          style={{ transform: "rotate(85deg)" }}
+          style={{ transform: "rotate(85deg) translateZ(0)" }}
         />
         
         
