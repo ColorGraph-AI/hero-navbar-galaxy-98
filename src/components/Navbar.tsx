@@ -39,7 +39,7 @@ const Navbar: React.FC<NavbarProps> = ({
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 sm:h-20">
           {/* Logo */}
-          <div className="flex-shrink-0 min-w-[80px] sm:min-w-[100px] mr-2 sm:mr-4 md:mr-8">
+          <div className="flex-shrink-0 min-w-[80px] sm:min-w-[100px]">
             <a href="/" className="flex items-center">
               <img
                 alt="ColorGraph.AI Logo"
@@ -71,33 +71,36 @@ const Navbar: React.FC<NavbarProps> = ({
             </nav>
           )}
 
-          {/* CTA Button - Always visible */}
-          <div 
-            className="animate-fade-in ml-auto mr-2 sm:mr-4" 
-            style={{
-              animationDelay: '0.6s'
-            }}
-          >
-            <Button 
-              className="cta-button font-alexandria font-semibold bg-brand-purple hover:bg-brand-purple/90 text-white px-4 sm:px-6 py-2 rounded-full text-sm sm:text-base"
-              onClick={openWaitlistModal}
+          {/* Right side container for CTA and mobile menu */}
+          <div className="flex items-center gap-2">
+            {/* CTA Button - Always visible */}
+            <div 
+              className="animate-fade-in flex-shrink-0" 
+              style={{
+                animationDelay: '0.6s'
+              }}
             >
-              Join waitlist!
-            </Button>
-          </div>
-
-          {/* Mobile Menu Button - Only visible in mobile view */}
-          {isMobile && (
-            <div className="ml-2">
-              <button
-                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="inline-flex items-center justify-center p-2 rounded-md text-black hover:text-brand-purple hover:bg-gray-100 transition duration-150"
-                aria-label="Toggle mobile menu"
+              <Button 
+                className="cta-button font-alexandria font-semibold bg-brand-purple hover:bg-brand-purple/90 text-white px-3 sm:px-6 py-2 rounded-full text-xs sm:text-base"
+                onClick={openWaitlistModal}
               >
-                {mobileMenuOpen ? <X className="h-5 w-5 sm:h-6 sm:w-6" /> : <Menu className="h-5 w-5 sm:h-6 sm:w-6" />}
-              </button>
+                Join waitlist!
+              </Button>
             </div>
-          )}
+
+            {/* Mobile Menu Button - Only visible in mobile view */}
+            {isMobile && (
+              <div className="flex-shrink-0">
+                <button
+                  onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                  className="inline-flex items-center justify-center p-2 rounded-md text-black hover:text-brand-purple hover:bg-gray-100 transition duration-150"
+                  aria-label="Toggle mobile menu"
+                >
+                  {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+                </button>
+              </div>
+            )}
+          </div>
         </div>
       </div>
 
