@@ -39,20 +39,20 @@ const Navbar: React.FC<NavbarProps> = ({
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 sm:h-20">
           {/* Logo */}
-          <div className="flex-shrink-0 min-w-[80px] sm:min-w-[100px]">
+          <div className="flex-shrink-0">
             <a href="/" className="flex items-center">
               <img
                 alt="ColorGraph.AI Logo"
                 src="/lovable-uploads/0c7e8b65-6ec0-4186-a7dd-31d63520f707.png"
-                className="h-7 sm:h-8 md:h-10 animate-fade-in object-contain w-auto"
+                className="h-6 sm:h-7 md:h-8 lg:h-10 animate-fade-in object-contain w-auto"
               />
             </a>
           </div>
 
           {/* Desktop Nav Links - Only shown when not in mobile view */}
           {!isMobile && (
-            <nav className="flex items-center flex-grow justify-center">
-              <div className="flex items-center space-x-6 lg:space-x-10 xl:space-x-16">
+            <nav className="flex items-center flex-1 justify-center px-4">
+              <div className="flex items-center space-x-4 lg:space-x-6 xl:space-x-8">
                 {navLinks.map((link, index) => (
                   <a
                     key={index}
@@ -72,7 +72,7 @@ const Navbar: React.FC<NavbarProps> = ({
           )}
 
           {/* Right side container for CTA and mobile menu */}
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1 sm:gap-2">
             {/* CTA Button - Always visible */}
             <div 
               className="animate-fade-in flex-shrink-0" 
@@ -81,7 +81,7 @@ const Navbar: React.FC<NavbarProps> = ({
               }}
             >
               <Button 
-                className="cta-button font-alexandria font-semibold bg-brand-purple hover:bg-brand-purple/90 text-white px-3 sm:px-6 py-2 rounded-full text-xs sm:text-base"
+                className="cta-button font-alexandria font-semibold bg-brand-purple hover:bg-brand-purple/90 text-white px-2 sm:px-4 lg:px-6 py-2 rounded-full text-xs sm:text-sm lg:text-base"
                 onClick={openWaitlistModal}
               >
                 Join waitlist!
@@ -90,7 +90,7 @@ const Navbar: React.FC<NavbarProps> = ({
 
             {/* Mobile Menu Button - Only visible in mobile view */}
             {isMobile && (
-              <div className="flex-shrink-0">
+              <div className="flex-shrink-0 ml-1">
                 <button
                   onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                   className="inline-flex items-center justify-center p-2 rounded-md text-black hover:text-brand-purple hover:bg-gray-100 transition duration-150"
