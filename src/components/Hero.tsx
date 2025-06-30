@@ -1,3 +1,4 @@
+
 import React from "react";
 import { Button } from "@/components/ui/button";
 import TrustedBy from "./TrustedBy";
@@ -62,7 +63,7 @@ const Hero: React.FC = () => {
   const { openWaitlistModal } = useWaitlist();
   
   return (
-    <div className="relative pt-20 overflow-hidden bg-[#FFF5FF]">
+    <div className="relative pt-16 sm:pt-20 overflow-hidden bg-[#FFF5FF]">
       {/* Background image */}
       <div 
         className="absolute inset-0 z-0"
@@ -74,8 +75,8 @@ const Hero: React.FC = () => {
         }}
       ></div>
       
-      {/* Floating elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none z-10">
+      {/* Floating elements - Hidden on small screens for cleaner mobile experience */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none z-10 hidden sm:block">
         <FloatingElement
           src="/lovable-uploads/pink_donut1.png"
           alt="Pink Donut"
@@ -144,34 +145,34 @@ const Hero: React.FC = () => {
       
       {/* Content */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-30">
-        <div className="flex flex-col items-center justify-center min-h-[85vh] text-center py-16 md:py-24">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-alexandria font-bold tracking-tight text-black max-w-4xl animate-fade-in" style={{ animationDelay: '0.3s' }}>
+        <div className="flex flex-col items-center justify-center min-h-[80vh] sm:min-h-[85vh] text-center py-8 sm:py-16 md:py-24">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-alexandria font-bold tracking-tight text-black max-w-4xl animate-fade-in leading-tight" style={{ animationDelay: '0.3s' }}>
             <span className="block">Faster Feedback,</span>
             <span className="block">Fewer Revisions.</span>
           </h1>
           
-          <h2 className="mt-6 text-xl md:text-2xl lg:text-3xl font-alexandria font-semibold text-brand-purple max-w-2xl animate-fade-in" style={{ animationDelay: '0.5s' }}>
+          <h2 className="mt-4 sm:mt-6 text-lg sm:text-xl md:text-2xl lg:text-3xl font-alexandria font-semibold text-brand-purple max-w-2xl animate-fade-in px-4" style={{ animationDelay: '0.5s' }}>
             Keep Your Creativity Flowing
           </h2>
           
-          <p className="mt-6 text-lg font-opensans font-normal text-gray-700 max-w-2xl mx-auto animate-fade-in" style={{ animationDelay: '0.6s' }}>
+          <p className="mt-4 sm:mt-6 text-base sm:text-lg font-opensans font-normal text-gray-700 max-w-2xl mx-auto animate-fade-in px-4" style={{ animationDelay: '0.6s' }}>
             Tired of vague feedback and endless revision cycles? ColorGraph.AI transforms client input into
             structured, actionable insights so you can design with clarity and confidence.
           </p>
           
-          <div className="mt-10 animate-fade-in" style={{ animationDelay: '0.7s' }}>
+          <div className="mt-8 sm:mt-10 animate-fade-in px-4" style={{ animationDelay: '0.7s' }}>
             <Button 
-              className="cta-button font-alexandria font-semibold bg-brand-purple hover:bg-brand-purple/90 text-white px-8 py-6 text-lg rounded-full shadow-lg"
+              className="cta-button font-alexandria font-semibold bg-brand-purple hover:bg-brand-purple/90 text-white px-6 sm:px-8 py-4 sm:py-6 text-base sm:text-lg rounded-full shadow-lg w-full sm:w-auto"
               onClick={openWaitlistModal}
             >
               Join our waitlist !
             </Button>
           </div>
           
-          <p className="mt-6 text-sm font-opensans font-normal text-gray-600 flex items-center gap-2 animate-fade-in" style={{ animationDelay: '0.8s' }}>
+          <p className="mt-4 sm:mt-6 text-xs sm:text-sm font-opensans font-normal text-gray-600 flex flex-col sm:flex-row items-center gap-2 animate-fade-in px-4 text-center" style={{ animationDelay: '0.8s' }}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5 text-brand-purple"
+              className="h-4 w-4 sm:h-5 sm:w-5 text-brand-purple flex-shrink-0"
               viewBox="0 0 20 20"
               fill="currentColor"
             >
@@ -181,7 +182,7 @@ const Hero: React.FC = () => {
                 clipRule="evenodd"
               />
             </svg>
-            Join 1000+ designers ready to revolutionize client collaboration with AI
+            <span>Join 1000+ designers ready to revolutionize client collaboration with AI</span>
           </p>
           
           <TrustedBy />

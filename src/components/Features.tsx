@@ -40,16 +40,15 @@ const Features: React.FC = () => {
   useEffect(() => {
     const activeContent = contentRefs.current[activeTab];
     if (activeContent) {
-      // Add a small buffer to prevent any potential scrollbar flicker
       setContentHeight(activeContent.offsetHeight + 10);
     }
   }, [activeTab]);
 
   return (
-    <section className="py-20 bg-white" id="features">
+    <section className="py-12 sm:py-16 lg:py-20 bg-white" id="features">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-4xl font-bold text-center mb-4">Features</h2>
-        <h3 className="text-xl font-alexandria font-semibold text-center text-gray-700 mb-12">
+        <h2 className="text-3xl sm:text-4xl font-bold text-center mb-3 sm:mb-4">Features</h2>
+        <h3 className="text-lg sm:text-xl font-alexandria font-semibold text-center text-gray-700 mb-8 sm:mb-12 px-4">
           Transform your creative workflow with AI-powered feedback tools
         </h3>
         
@@ -57,16 +56,16 @@ const Features: React.FC = () => {
           defaultValue="ai-analysis" 
           value={activeTab}
           onValueChange={setActiveTab}
-          className="w-full max-w-4xl mx-auto"
+          className="w-full max-w-6xl mx-auto"
         >
-          <TabsList className="w-full h-auto p-1 bg-[#FCF1FF] rounded-full mb-10 flex justify-between">
+          <TabsList className="w-full h-auto p-1 bg-[#FCF1FF] rounded-full mb-6 sm:mb-10 flex flex-col sm:flex-row justify-between gap-1 sm:gap-0">
             {featureTabs.map((tab) => (
               <TabsTrigger
                 key={tab.id}
                 value={tab.id}
-                className="relative flex-1 py-3 px-2 rounded-full transition-all duration-300 text-center font-opensans font-semibold"
+                className="relative flex-1 py-3 px-2 sm:px-3 rounded-full transition-all duration-300 text-center font-opensans font-semibold w-full sm:w-auto"
               >
-                <span className="relative z-10 text-black">{tab.label}</span>
+                <span className="relative z-10 text-black text-xs sm:text-sm lg:text-base">{tab.label}</span>
                 {activeTab === tab.id && (
                   <motion.div
                     layoutId="activeTab"
@@ -81,7 +80,7 @@ const Features: React.FC = () => {
           </TabsList>
           
           <div 
-            className="bg-[#FCF1FF] rounded-3xl p-8 overflow-hidden transition-all duration-300"
+            className="bg-[#FCF1FF] rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8 overflow-hidden transition-all duration-300"
             style={{ minHeight: `${contentHeight}px` }}
           >
             {featureTabs.map((tab) => (
@@ -95,14 +94,14 @@ const Features: React.FC = () => {
               >
                 <div 
                   ref={el => contentRefs.current[tab.id] = el}
-                  className="overflow-hidden border-4 border-[#FCF1FF] rounded-2xl bg-white"
+                  className="overflow-hidden border-2 sm:border-4 border-[#FCF1FF] rounded-xl sm:rounded-2xl bg-white"
                 >
                   <img 
                     src={tab.imageUrl} 
                     alt={tab.label} 
                     className="w-full h-auto"
                   />
-                  <p className="mt-6 text-center text-gray-700 max-w-2xl mx-auto p-4">
+                  <p className="mt-4 sm:mt-6 text-center text-gray-700 max-w-2xl mx-auto p-3 sm:p-4 text-sm sm:text-base">
                     {tab.description}
                   </p>
                 </div>
