@@ -101,8 +101,8 @@ const Features: React.FC = () => {
                     alt={tab.label} 
                     className="w-full h-auto block"
                   />
-                  <div className="p-3 sm:p-4 lg:p-8">
-                    <h4 className="font-alexandria font-bold text-lg sm:text-xl text-gray-900 mb-2 sm:mb-3 text-center">
+                  <div className="p-2 sm:p-4 lg:p-8">
+                    <h4 className="font-alexandria font-bold text-lg sm:text-xl text-gray-900 mb-1 sm:mb-3 text-center">
                       {tab.label}
                     </h4>
                     <p className="text-center text-gray-700 max-w-2xl mx-auto text-sm sm:text-base leading-relaxed">
