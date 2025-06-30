@@ -94,17 +94,29 @@ const Features: React.FC = () => {
               >
                 <div 
                   ref={el => contentRefs.current[tab.id] = el}
-                  className="overflow-hidden border-2 sm:border-4 border-[#FCF1FF] rounded-xl sm:rounded-xl lg:rounded-2xl bg-white mx-1 sm:mx-2"
+                  className="group overflow-hidden border-2 sm:border-4 border-[#FCF1FF] rounded-xl sm:rounded-xl lg:rounded-2xl bg-white mx-1 sm:mx-2 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02]"
                 >
-                  <img 
-                    src={tab.imageUrl} 
-                    alt={tab.label} 
-                    className="w-full h-auto block"
-                  />
-                  <div className="p-3 sm:p-4 lg:p-6">
+                  <div className="relative overflow-hidden">
+                    <img 
+                      src={tab.imageUrl} 
+                      alt={tab.label} 
+                      className="w-full h-auto block transition-transform duration-300 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  </div>
+                  <div className="p-4 sm:p-6 lg:p-8 relative">
+                    <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-12 h-1 bg-gradient-to-r from-[#A644B3] to-[#FF8BD5] rounded-full opacity-60" />
+                    <h4 className="font-alexandria font-bold text-lg sm:text-xl text-gray-900 mb-3 text-center">
+                      {tab.label}
+                    </h4>
                     <p className="text-center text-gray-700 max-w-2xl mx-auto text-sm sm:text-base leading-relaxed">
                       {tab.description}
                     </p>
+                    <div className="mt-4 flex justify-center">
+                      <div className="w-8 h-8 rounded-full bg-gradient-to-r from-[#A644B3] to-[#FF8BD5] flex items-center justify-center opacity-80">
+                        <div className="w-3 h-3 rounded-full bg-white" />
+                      </div>
+                    </div>
                   </div>
                 </div>
               </TabsContent>
