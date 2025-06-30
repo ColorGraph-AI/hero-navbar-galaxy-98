@@ -80,7 +80,7 @@ const Features: React.FC = () => {
           </TabsList>
           
           <div 
-            className="bg-[#FCF1FF] rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8 overflow-hidden transition-all duration-300"
+            className="bg-[#FCF1FF] rounded-2xl sm:rounded-3xl p-2 sm:p-4 lg:p-6 overflow-hidden transition-all duration-300"
             style={{ minHeight: `${contentHeight}px` }}
           >
             {featureTabs.map((tab) => (
@@ -94,16 +94,18 @@ const Features: React.FC = () => {
               >
                 <div 
                   ref={el => contentRefs.current[tab.id] = el}
-                  className="overflow-hidden border-2 sm:border-4 border-[#FCF1FF] rounded-xl sm:rounded-2xl bg-white"
+                  className="overflow-hidden border-2 sm:border-4 border-[#FCF1FF] rounded-xl sm:rounded-2xl bg-white mx-1 sm:mx-2"
                 >
                   <img 
                     src={tab.imageUrl} 
                     alt={tab.label} 
-                    className="w-full h-auto"
+                    className="w-full h-auto block"
                   />
-                  <p className="mt-4 sm:mt-6 text-center text-gray-700 max-w-2xl mx-auto p-3 sm:p-4 text-sm sm:text-base">
-                    {tab.description}
-                  </p>
+                  <div className="p-3 sm:p-4 lg:p-6">
+                    <p className="text-center text-gray-700 max-w-2xl mx-auto text-sm sm:text-base leading-relaxed">
+                      {tab.description}
+                    </p>
+                  </div>
                 </div>
               </TabsContent>
             ))}
