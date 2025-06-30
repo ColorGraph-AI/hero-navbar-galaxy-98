@@ -58,18 +58,18 @@ const Features: React.FC = () => {
           onValueChange={setActiveTab}
           className="w-full max-w-6xl mx-auto"
         >
-          <TabsList className="w-full h-auto p-1 bg-[#FCF1FF] rounded-full mb-6 sm:mb-10 flex flex-col sm:flex-row justify-between gap-1 sm:gap-0">
+          <TabsList className="w-full h-auto p-1 bg-[#FCF1FF] rounded-lg sm:rounded-full mb-6 sm:mb-10 flex flex-col sm:flex-row justify-between gap-1 sm:gap-0">
             {featureTabs.map((tab) => (
               <TabsTrigger
                 key={tab.id}
                 value={tab.id}
-                className="relative flex-1 py-3 px-2 sm:px-3 rounded-full transition-all duration-300 text-center font-opensans font-semibold w-full sm:w-auto"
+                className="relative flex-1 py-2 sm:py-3 px-1 sm:px-3 rounded-md sm:rounded-full transition-all duration-300 text-center font-opensans font-semibold w-full sm:w-auto"
               >
-                <span className="relative z-10 text-black text-xs sm:text-sm lg:text-base">{tab.label}</span>
+                <span className="relative z-10 text-black text-xs sm:text-sm lg:text-base leading-tight">{tab.label}</span>
                 {activeTab === tab.id && (
                   <motion.div
                     layoutId="activeTab"
-                    className="absolute inset-0 bg-white rounded-full z-0"
+                    className="absolute inset-0 bg-white rounded-md sm:rounded-full z-0"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.3 }}
@@ -80,7 +80,7 @@ const Features: React.FC = () => {
           </TabsList>
           
           <div 
-            className="bg-[#FCF1FF] rounded-2xl sm:rounded-3xl p-2 sm:p-4 lg:p-6 overflow-hidden transition-all duration-300"
+            className="bg-[#FCF1FF] rounded-xl sm:rounded-2xl lg:rounded-3xl p-2 sm:p-4 lg:p-6 overflow-hidden transition-all duration-300"
             style={{ minHeight: `${contentHeight}px` }}
           >
             {featureTabs.map((tab) => (
@@ -94,7 +94,7 @@ const Features: React.FC = () => {
               >
                 <div 
                   ref={el => contentRefs.current[tab.id] = el}
-                  className="overflow-hidden border-2 sm:border-4 border-[#FCF1FF] rounded-xl sm:rounded-2xl bg-white mx-1 sm:mx-2"
+                  className="overflow-hidden border-2 sm:border-4 border-[#FCF1FF] rounded-lg sm:rounded-xl lg:rounded-2xl bg-white mx-1 sm:mx-2"
                 >
                   <img 
                     src={tab.imageUrl} 
