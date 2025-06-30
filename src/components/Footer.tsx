@@ -50,7 +50,7 @@ const Footer: React.FC = () => {
               <img
                 src="/lovable-uploads/2fc1da71-3a6e-4aee-9251-f3bd607cba54.png"
                 alt="ColorGraph.AI Logo"
-                className="h-12 w-auto brightness-0 invert"
+                className="h-8 sm:h-10 md:h-12 w-auto brightness-0 invert object-contain"
               />
             </Link>
           </div>
